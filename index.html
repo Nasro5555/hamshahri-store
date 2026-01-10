@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>همشهری استور | UC پابجی</title>
+  <title>همشهری استور | صفحه اصلی</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -19,99 +19,44 @@
     </div>
 
     <div class="actions">
-      <input id="search" type="search" placeholder="جستجو... (مثلاً 325 یا 1800)" />
-      <button id="cartBtn" class="btn btnPrimary">
-        سبد خرید <span id="cartCount" class="pill">0</span>
-      </button>
+      <a class="btn btnPrimary" href="https://wa.me/93783019744?text=%D8%B3%D9%84%D8%A7%D9%85!%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7%DB%8C%DB%8C%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%85." target="_blank" rel="noreferrer">
+        واتساپ
+      </a>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
+    <section class="hero" style="grid-template-columns:1fr; text-align:right;">
       <div class="heroLeft">
-        <div class="chip">Gaming Store • PUBG Mobile UC</div>
-        <h1 class="heroTitle">خرید UC پابجی با سفارش سریع در واتساپ</h1>
-        <p class="heroSub">
-          تحویل آنلاین • ثبت سفارش آسان • پشتیبانی واتساپ
-        </p>
+        <div class="chip">Gaming • VPN • Top-up</div>
+        <h1 class="heroTitle">به همشهری استور خوش آمدید</h1>
+        <p class="heroSub">لطفاً یک گزینه را انتخاب کنید</p>
 
-        <div class="heroBtns">
-          <a id="waLink" class="btn btnPrimary" href="#" target="_blank" rel="noreferrer">پیام در واتساپ</a>
-          <button id="scrollToProducts" class="btn btnGhost">دیدن محصولات</button>
-        </div>
+        <div class="splitGrid" style="margin-top:16px;">
+          <a class="bigCard" href="games.html">
+            <div class="bigIcon">🎮</div>
+            <div class="bigTitle">بازی‌ها</div>
+            <div class="bigSub muted">PUBG • Clash • CODM • Mobile Legends</div>
+            <div class="bigGo">ورود →</div>
+          </a>
 
-        <div class="trust">
-          <div class="trustItem">
-            <div class="trustNum">7+</div>
-            <div class="trustText">سال تجربه</div>
-          </div>
-          <div class="trustItem">
-            <div class="trustNum">⚡</div>
-            <div class="trustText">سفارش سریع</div>
-          </div>
-          <div class="trustItem">
-            <div class="trustNum">💬</div>
-            <div class="trustText">پشتیبانی واتساپ</div>
-          </div>
+          <a class="bigCard" href="vpn.html">
+            <div class="bigIcon">🛡️</div>
+            <div class="bigTitle">VPN</div>
+            <div class="bigSub muted">ExpressVPN • NordVPN</div>
+            <div class="bigGo">ورود →</div>
+          </a>
         </div>
       </div>
-
-      <div class="heroRight">
-        <div class="heroCard">
-          <div class="heroCardTitle">نکته مهم</div>
-          <ul class="heroList">
-            <li>UID پابجی را دقیق وارد کنید</li>
-            <li>قبل از ثبت سفارش، قیمت‌ها را چک کنید</li>
-            <li>بعد از ثبت، پیام واتساپ باز می‌شود</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="productsSection" class="section">
-      <div class="sectionHead">
-        <h2>پکیج‌های UC</h2>
-        <p class="muted">افزودن به سبد → ثبت سفارش در واتساپ</p>
-      </div>
-      <div id="products" class="grid"></div>
     </section>
   </main>
 
-  <!-- Cart Drawer -->
-  <div id="drawerOverlay" class="overlay hidden"></div>
-  <aside id="drawer" class="drawer hidden">
-    <div class="drawerHeader">
-      <div class="drawerTitle">سبد خرید</div>
-      <button id="closeDrawer" class="btn btnGhost">بستن</button>
-    </div>
-
-    <div id="cartItems" class="cartItems"></div>
-
-    <div class="summary">
-      <div class="row">
-        <span class="muted">جمع کل</span>
-        <b id="totalPrice">0</b>
-      </div>
-
-      <div class="form">
-        <input id="custName" placeholder="نام شما" />
-        <input id="custPhone" placeholder="شماره تماس" />
-        <input id="pubgId" placeholder="PUBG UID (ضروری)" />
-        <textarea id="note" placeholder="توضیحات (اختیاری) - مثال: زمان/اکانت"></textarea>
-
-        <button id="checkoutBtn" class="btn btnPrimary">ثبت سفارش در واتساپ</button>
-        <p id="msg" class="muted small"></p>
-      </div>
-    </div>
-  </aside>
-
   <footer class="footer">
     <div class="footerInner">
-      <div class="muted">© همشهری استور — نسخه رایگان (GitHub Pages)</div>
-      <a id="waLink2" class="muted link" href="#" target="_blank" rel="noreferrer">پشتیبانی واتساپ</a>
+      <div class="muted">© همشهری استور</div>
+      <a class="muted link" href="games.html">Games</a>
+      <a class="muted link" href="vpn.html">VPN</a>
     </div>
   </footer>
-
-  <script src="app.js"></script>
 </body>
 </html>
