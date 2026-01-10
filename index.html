@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>همشهری استور | UC پابجی</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img class="logoImg" src="logo.jpg" alt="همشهری استور" />
+      <div class="brandText">
+        <div class="brandName">همشهری استور</div>
+        <div class="brandTag">۷ سال اعتماد سازی</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <input id="search" type="search" placeholder="جستجو... (مثلاً 325 یا 1800)" />
+      <button id="cartBtn" class="btn btnPrimary">
+        سبد خرید <span id="cartCount" class="pill">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="heroLeft">
+        <div class="chip">Gaming Store • PUBG Mobile UC</div>
+        <h1 class="heroTitle">خرید UC پابجی با سفارش سریع در واتساپ</h1>
+        <p class="heroSub">
+          تحویل آنلاین • ثبت سفارش آسان • پشتیبانی واتساپ
+        </p>
+
+        <div class="heroBtns">
+          <a id="waLink" class="btn btnPrimary" href="#" target="_blank" rel="noreferrer">پیام در واتساپ</a>
+          <button id="scrollToProducts" class="btn btnGhost">دیدن محصولات</button>
+        </div>
+
+        <div class="trust">
+          <div class="trustItem">
+            <div class="trustNum">7+</div>
+            <div class="trustText">سال تجربه</div>
+          </div>
+          <div class="trustItem">
+            <div class="trustNum">⚡</div>
+            <div class="trustText">سفارش سریع</div>
+          </div>
+          <div class="trustItem">
+            <div class="trustNum">💬</div>
+            <div class="trustText">پشتیبانی واتساپ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="heroCard">
+          <div class="heroCardTitle">نکته مهم</div>
+          <ul class="heroList">
+            <li>UID پابجی را دقیق وارد کنید</li>
+            <li>قبل از ثبت سفارش، قیمت‌ها را چک کنید</li>
+            <li>بعد از ثبت، پیام واتساپ باز می‌شود</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="productsSection" class="section">
+      <div class="sectionHead">
+        <h2>پکیج‌های UC</h2>
+        <p class="muted">افزودن به سبد → ثبت سفارش در واتساپ</p>
+      </div>
+      <div id="products" class="grid"></div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div id="drawerOverlay" class="overlay hidden"></div>
+  <aside id="drawer" class="drawer hidden">
+    <div class="drawerHeader">
+      <div class="drawerTitle">سبد خرید</div>
+      <button id="closeDrawer" class="btn btnGhost">بستن</button>
+    </div>
+
+    <div id="cartItems" class="cartItems"></div>
+
+    <div class="summary">
+      <div class="row">
+        <span class="muted">جمع کل</span>
+        <b id="totalPrice">0</b>
+      </div>
+
+      <div class="form">
+        <input id="custName" placeholder="نام شما" />
+        <input id="custPhone" placeholder="شماره تماس" />
+        <input id="pubgId" placeholder="PUBG UID (ضروری)" />
+        <textarea id="note" placeholder="توضیحات (اختیاری) - مثال: زمان/اکانت"></textarea>
+
+        <button id="checkoutBtn" class="btn btnPrimary">ثبت سفارش در واتساپ</button>
+        <p id="msg" class="muted small"></p>
+      </div>
+    </div>
+  </aside>
+
+  <footer class="footer">
+    <div class="footerInner">
+      <div class="muted">© همشهری استور — نسخه رایگان (GitHub Pages)</div>
+      <a id="waLink2" class="muted link" href="#" target="_blank" rel="noreferrer">پشتیبانی واتساپ</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
