@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>همشهری استور | VPN</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img class="logoImg" src="logo.jpg" alt="همشهری استور" />
+      <div class="brandText">
+        <div class="brandName">همشهری استور</div>
+        <div class="brandTag">VPN</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn btnGhost" href="index.html">بازگشت</a>
+      <a id="waLink" class="btn btnPrimary" href="#" target="_blank" rel="noreferrer">واتساپ</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="sectionHead">
+        <h2>انتخاب VPN</h2>
+        <p class="muted">روی هر گزینه بزنید تا سفارش در واتساپ آماده شود</p>
+      </div>
+
+      <div class="grid">
+        <a class="card" id="express" href="#" style="text-decoration:none;color:inherit;">
+          <div class="title">ExpressVPN</div>
+          <div class="desc">فعال‌سازی/اکانت • سفارش در واتساپ</div>
+          <div class="priceRow"><b>سفارش</b><span class="muted" style="font-size:12px;">→</span></div>
+          <button class="btn btnPrimary" type="button">سفارش ExpressVPN</button>
+        </a>
+
+        <a class="card" id="nord" href="#" style="text-decoration:none;color:inherit;">
+          <div class="title">NordVPN</div>
+          <div class="desc">فعال‌سازی/اکانت • سفارش در واتساپ</div>
+          <div class="priceRow"><b>سفارش</b><span class="muted" style="font-size:12px;">→</span></div>
+          <button class="btn btnPrimary" type="button">سفارش NordVPN</button>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const WA = "93783019744";
+    const waUrl = (t) => `https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+
+    document.getElementById("waLink").href = waUrl("سلام! برای خرید VPN پیام می‌دم.");
+    document.getElementById("express").href = waUrl("سلام! می‌خواهم ExpressVPN تهیه کنم. لطفاً قیمت و مدت‌ها را بفرستید.");
+    document.getElementById("nord").href    = waUrl("سلام! می‌خواهم NordVPN تهیه کنم. لطفاً قیمت و مدت‌ها را بفرستید.");
+  </script>
+</body>
+</html>
