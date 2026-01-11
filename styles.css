@@ -1,318 +1,400 @@
-/* ================================
-   Hamshahri Store - Full Stylesheet (RTL)
-   Glass / Gaming UI - Clean & Stable
-   ================================ */
+/* =========================
+   Hamshahri Store - Clean Responsive CSS
+   Replace your whole CSS with this file
+   ========================= */
 
-:root{
-  --bg1:#070a14;
-  --bg2:#0b1022;
+/* --- Reset / Base --- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
-  --panel: rgba(255,255,255,.07);
-  --panel2: rgba(255,255,255,.045);
-  --line: rgba(174,227,251,.16);
-
-  --text: rgba(245,248,255,.96);
-  --muted: rgba(234,242,255,.70);
-
-  --shadow: 0 18px 60px rgba(0,0,0,.55);
-
-  --radius: 26px;
-  --radius2: 22px;
-}
-
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
+html, body { height: 100%; }
 
 body{
-  margin:0;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans Arabic", "Vazirmatn", sans-serif;
   direction: rtl;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(1200px 600px at 20% 10%, rgba(90,140,255,.18), transparent 55%),
-    radial-gradient(900px 500px at 85% 20%, rgba(80,255,220,.10), transparent 60%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
-  overflow-x:hidden;
+  color: rgba(255,255,255,.92);
+  background: radial-gradient(1200px 700px at 20% 10%, rgba(120,170,255,.18), transparent 55%),
+              radial-gradient(900px 600px at 80% 20%, rgba(170,120,255,.16), transparent 60%),
+              linear-gradient(180deg, #07101d 0%, #060b14 100%);
+  overflow-x: hidden;
 }
 
-a{ color:inherit; }
-.link{ text-decoration:none; }
-.muted{ color:var(--muted); }
-
-.bg{
-  position: fixed;
-  inset: 0;
-  pointer-events:none;
-  background:
-    radial-gradient(900px 420px at 30% 25%, rgba(174,227,251,.10), transparent 55%),
-    radial-gradient(700px 360px at 70% 65%, rgba(120,90,255,.10), transparent 60%);
-  opacity:.95;
+img, video, svg{
+  max-width: 100%;
+  height: auto;           /* مهم: جلو کشیده شدن عکس را می‌گیرد */
+  display: block;
 }
 
-/* ===== Layout ===== */
+a{ color: inherit; text-decoration: none; }
+button, input, textarea, select{ font: inherit; }
+
+:root{
+  --bg: #060b14;
+  --panel: rgba(255,255,255,.06);
+  --panel2: rgba(255,255,255,.08);
+  --border: rgba(255,255,255,.10);
+  --shadow: 0 12px 30px rgba(0,0,0,.35);
+  --blur: blur(14px);
+  --r: 18px;
+  --r2: 26px;
+
+  --p: 16px;
+  --p2: 22px;
+
+  --accent: rgba(120,170,255,.85);
+  --accent2: rgba(170,120,255,.75);
+
+  --max: 1100px;
+}
+
+/* --- Helpers --- */
 .container{
-  width: min(980px, calc(100% - 28px));
-  margin: 0 auto;
-  padding: 18px 0 34px;
+  width: min(var(--max), calc(100% - 24px));
+  margin-inline: auto;
 }
 
-/* ===== Topbar ===== */
-.topbar{
-  width: min(980px, calc(100% - 28px));
-  margin: 16px auto 0;
-  padding: 14px 16px;
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+.section{ padding: 18px 0; }
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 14px;
+.card{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  overflow: hidden; /* مهم: عکس از کارت بیرون نزند */
+}
+
+.card-inner{ padding: var(--p2); }
+
+hr.soft{
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+  margin: 12px 0;
+}
+
+/* =========================
+   Header / Navbar
+   ========================= */
+.site-header{
+  position: sticky; /* به جای fixed که مشکل فاصله ایجاد می‌کند */
+  top: 0;
+  z-index: 50;
+  padding: 14px 0;
+  background: linear-gradient(180deg, rgba(6,11,20,.85), rgba(6,11,20,.25));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   gap: 12px;
-  min-width:0;
+  min-width: 0;
 }
 
-.logoImg{
-  width:54px;
-  height:54px;
-  border-radius:18px;
-  background: rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.14);
-  object-fit:contain;
-  padding:6px;
+.brand-logo{
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  border-radius: 12px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.10);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 }
 
-.brandText{ min-width:0; }
-.brandName{
-  font-weight: 1000;
-  font-size: 18px;
+.brand-logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* لوگو درست جا می‌شود */
+}
+
+.brand-title{
+  display: flex;
+  flex-direction: column;
   line-height: 1.1;
+  min-width: 0;
 }
-.brandTag{
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 12.5px;
-  font-weight: 800;
+
+.brand-title strong{
+  font-size: 18px;
+  letter-spacing: .2px;
   white-space: nowrap;
-  overflow:hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.actions{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:10px;
-  flex-wrap:wrap;
+.brand-title span{
+  opacity: .75;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.07);
+  color: rgba(255,255,255,.92);
+  border-radius: 14px;
   padding: 10px 14px;
-  border-radius: 18px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  text-decoration:none;
-  font-weight: 1000;
-  font-size: 13px;
-  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.btnPrimary{
-  border-color: rgba(174,227,251,.24);
-  background: rgba(174,227,251,.14);
+.btn:hover{ background: rgba(255,255,255,.10); }
+.btn:active{ transform: scale(.98); }
+
+.btn.primary{
+  background: linear-gradient(135deg, rgba(120,170,255,.35), rgba(170,120,255,.22));
+  border-color: rgba(150,180,255,.30);
 }
 
-/* ===== Card Box ===== */
-.cardBox{
-  padding:16px;
-  border-radius: var(--radius);
-  border:1px solid var(--line);
-  background: linear-gradient(135deg, rgba(15,18,40,.55), rgba(7,8,20,.35));
-  box-shadow: 0 12px 45px rgba(0,0,0,.35);
+/* =========================
+   Hero / Banner
+   ========================= */
+.hero{
+  padding: 18px 0 6px;
 }
 
-/* ===== Page Head ===== */
-.pageHead{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:12px;
-  margin: 6px 0 14px;
-}
-
-.pageHead h1{
-  margin:0;
-  font-size:22px;
-  font-weight:1100;
-}
-
-.pageHead p{
-  margin:6px 0 0;
-  color: var(--muted);
-  font-size:13px;
-  font-weight:800;
-}
-
-.backLink{
-  text-decoration:none;
-  padding:10px 12px;
-  border-radius:16px;
-  border:1px solid rgba(174,227,251,.18);
-  background: rgba(174,227,251,.06);
-  font-weight:1000;
-  font-size:13px;
-}
-
-/* ===== HERO IMAGE (برای صفحات مثل پابجی) ===== */
-.pubgHeroImg{
-  width:100%;
-  aspect-ratio: 16 / 9; /* همیشه درست، بدون کشیدگی */
-  object-fit: cover;
-  display:block;
-  border-radius: 22px;
-  border:1px solid rgba(174,227,251,.16);
-}
-
-/* ======================================
-   GAMES GRID (صفحه بازی‌ها - ۲ تا در هر خط)
-   ====================================== */
-.gamesGrid{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:14px;
-}
-
-.gameCard{
-  position:relative;
-  height: 150px;
-  border-radius: 18px;
-  overflow:hidden;
-  border:1px solid rgba(174,227,251,.16);
-  background: rgba(0,0,0,.18);
-  box-shadow: 0 14px 45px rgba(0,0,0,.45);
-  text-decoration:none;
-  color:inherit;
-  transition: transform .15s ease, filter .15s ease;
-}
-.gameCard:active{
-  transform: scale(.985);
-  filter: brightness(1.05);
-}
-
-.gameCard img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
-
-.gameOverlay{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.10));
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:12px;
-  gap:6px;
-}
-
-.gameOverlay h3{
-  margin:0;
-  font-size:16px;
-  font-weight:1000;
-}
-.gameOverlay span{
-  font-size:13px;
-  opacity:.86;
-  font-weight:800;
-}
-
-/* ======================================
-   UC GRID (پک‌های یوسی - مثل Midasbuy)
-   دو تا در هر خط + عکس بدون کشیدگی
-   ====================================== */
-.ucGrid{
+.hero-wrap{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* دو تا در هر خط */
-  gap: 14px;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.hero-banner{
+  min-height: 260px; /* مهم: به جای height:100vh */
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  box-shadow: var(--shadow);
+}
+
+.hero-banner img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* بنر قشنگ پر می‌شود */
+}
+
+.hero-banner::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px 300px at 30% 20%, rgba(120,170,255,.28), transparent 60%),
+              radial-gradient(600px 250px at 70% 40%, rgba(170,120,255,.24), transparent 65%),
+              linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.40));
+  pointer-events: none;
+}
+
+.hero-side{
+  border-radius: 26px;
+}
+
+/* =========================
+   Pages Title Box
+   ========================= */
+.page-title{
   margin-top: 14px;
 }
 
-.ucCard{
+.page-title h1{
+  margin: 0;
+  font-size: 22px;
+}
+
+.page-title p{
+  margin: 8px 0 0;
+  opacity: .75;
+  font-size: 13px;
+}
+
+/* =========================
+   Product Grid / Cards
+   ========================= */
+.grid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product{
   border-radius: 22px;
   overflow: hidden;
-  border: 1px solid rgba(174,227,251,.16);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  box-shadow: 0 14px 45px rgba(0,0,0,.45);
-  text-decoration: none;
-  color: inherit;
 }
 
-/* قاب عکس (مربع) */
-.ucThumb{
-  width: 100%;
-  aspect-ratio: 1 / 1;         /* مربع */
-  background: rgba(0,0,0,.14); /* هم‌رنگ سایت */
-  display: grid;
-  place-items: center;
+.product-media{
+  position: relative;
+  aspect-ratio: 16/9;    /* مهم: عکس‌ها یک اندازه می‌شوند */
+  background: rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
-/* عکس داخل قاب — بدون کشیدگی */
-.ucThumb img{
+.product-media img{
   width: 100%;
   height: 100%;
-  object-fit: contain;          /* مهم: کشیده نمی‌شود */
-  display: block;
-  padding: 10px;
+  object-fit: cover;     /* مهم: نه کشیده می‌شود نه خراب */
 }
 
-/* پایین کارت */
-.ucInfo{
-  padding: 12px 12px 14px;
-  display: grid;
-  gap: 6px;
-  text-align: right;
+.badge{
+  position: absolute;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+  font-size: 12px;
 }
 
-.ucTitle{
-  font-weight: 1000;
+.product-body{ padding: 14px; }
+
+.product-title{
+  margin: 0 0 10px;
   font-size: 16px;
 }
 
-.ucPrice{
-  font-weight: 1000;
-  font-size: 15px;
-  color: rgba(174,227,251,.95);
+.price-row{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 720px){
-  .gamesGrid{ gap: 12px; }
+.price{
+  font-weight: 800;
+  letter-spacing: .2px;
 }
 
-@media (max-width: 520px){
-  .topbar{ padding: 12px 12px; }
-  .logoImg{ width: 50px; height: 50px; }
-  .gameCard{ height: 145px; }
+.price small{
+  font-weight: 600;
+  opacity: .70;
+  margin-inline-start: 6px;
 }
 
-/* فقط خیلی خیلی کوچک → تک ستونه */
-@media (max-width: 380px){
-  .gamesGrid{ grid-template-columns: 1fr; }
-  .ucGrid{ grid-template-columns: 1fr; }
+.product-actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
 }
 
-@media (prefers-reduced-motion: reduce){
-  .gameCard{ transition:none; }
+/* =========================
+   Form / Inputs
+   ========================= */
+.field{
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
 }
+
+.label{
+  font-size: 13px;
+  opacity: .82;
+}
+
+.input, select, textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.92);
+  outline: none;
+}
+
+.input:focus, select:focus, textarea:focus{
+  border-color: rgba(150,180,255,.35);
+  box-shadow: 0 0 0 3px rgba(120,170,255,.15);
+}
+
+textarea{ min-height: 110px; resize: vertical; }
+
+/* =========================
+   Footer
+   ========================= */
+.footer{
+  padding: 20px 0 40px;
+  opacity: .75;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* =========================
+   Fix common bugs that create big empty spaces
+   ========================= */
+/* اگر جایی از سایتت از این‌ها استفاده شده باشد، این قوانین جلوی خرابکاری را می‌گیرد */
+main, header, section, .container, .card, .page, .page-content{
+  max-width: 100%;
+}
+
+.hero, .section, .page{
+  height: auto !important;     /* مهم: جلوی height:100vh اضافی را می‌گیرد */
+  min-height: 0 !important;
+}
+
+body{
+  overflow-y: auto;            /* اگر قبلاً hidden شده باشد، خراب می‌کند */
+}
+
+img{
+  background: transparent;     /* برای PNG/WebP */
+}
+
+/* =========================
+   Responsive (Mobile First fixes)
+   ========================= */
+@media (max-width: 980px){
+  .hero-wrap{ grid-template-columns: 1fr; }
+  .grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px){
+  .brand-title strong{ font-size: 16px; }
+  .btn{ padding: 10px 12px; border-radius: 13px; }
+
+  .grid{ grid-template-columns: 1fr; }
+  .hero-banner{ min-height: 220px; }
+
+  .navbar{
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .nav-actions{
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* =========================
+   Optional: Smooth scrolling
+   ========================= */
+html{ scroll-behavior: smooth; }
