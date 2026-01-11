@@ -4,8 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>پرداخت | همشهری استور</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
+
 <body>
   <div class="bg"></div>
 
@@ -14,39 +15,90 @@
       <img class="logoImg" src="logo.jpg" alt="لوگو" />
       <div class="brandText">
         <div class="brandName">همشهری استور</div>
-        <div class="brandTag">پرداخت سریع و مطمئن</div>
+        <div class="brandTag">انتخاب روش پرداخت</div>
       </div>
     </div>
     <div class="actions">
-      <a class="btn" href="index.html">بازگشت</a>
+      <a class="btn" href="javascript:history.back()">بازگشت</a>
+      <a class="btn" href="index.html">خانه</a>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <div class="heroText">
-        <h1>انتخاب روش پرداخت</h1>
-        <p>یک گزینه را انتخاب کنید</p>
+
+      <div class="pageHead">
+        <div>
+          <h1 id="titleLine">پرداخت</h1>
+          <p id="subLine" class="muted">لطفاً روش پرداخت را انتخاب کنید</p>
+        </div>
+        <a class="backLink" href="games.html">بازی‌ها</a>
       </div>
 
-      <div class="payGrid">
-        <a class="payCard" href="atoma.html">
+      <!-- دو کارت چهارگوش مثل Midasbuy -->
+      <div class="payGrid2">
+        <a class="payCard2" id="atomaLink" href="atoma.html">
           <img src="atoma.jpg" alt="مومو atoma" />
-          <div class="payOverlay">
-            <h3>مومو atoma</h3>
-            <span>برای پرداخت وارد شوید</span>
+          <div class="payOverlay2">
+            <div class="payTitle2">مومو atoma</div>
+            <div class="paySub2">انتخاب</div>
           </div>
         </a>
 
-        <a class="payCard" href="hawala.html">
+        <a class="payCard2" id="hawalaLink" href="hawala.html">
           <img src="hawala.jpg" alt="ام حواله m Hawala" />
-          <div class="payOverlay">
-            <h3>ام حواله m Hawala</h3>
-            <span>برای پرداخت وارد شوید</span>
+          <div class="payOverlay2">
+            <div class="payTitle2">ام حواله m Hawala</div>
+            <div class="paySub2">انتخاب</div>
           </div>
         </a>
       </div>
+
+      <div class="note" style="margin-top:16px;">
+        <span class="dot"></span>
+        بعد از انتخاب روش پرداخت، رسید را ارسال می‌کنید و اطلاعات بازی را وارد می‌کنید.
+      </div>
+
     </section>
   </main>
+
+<script>
+  // --- خواندن پارامترها ---
+  const params = new URLSearchParams(location.search);
+  const game = (params.get("game") || "").trim();     // pubg, ...
+  const pack = (params.get("pack") || "").trim();     // 60, 325, ...
+  const price = (params.get("price") || "").trim();   // 65, 310, ...
+
+  // --- تبدیل عدد انگلیسی به فارسی برای نمایش ---
+  function toFaDigits(str){
+    return String(str).replace(/[0-9]/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+  }
+
+  // --- ساخت عنوان پویا ---
+  const titleLine = document.getElementById("titleLine");
+  const subLine = document.getElementById("subLine");
+
+  if (price) {
+    titleLine.textContent = `${toFaDigits(price)} افغانی پرداخت کنید`;
+    if (pack) {
+      subLine.textContent = `برای بسته ${toFaDigits(pack)} (بازی: ${game || "—"})`;
+    } else {
+      subLine.textContent = `لطفاً روش پرداخت را انتخاب کنید`;
+    }
+  } else {
+    titleLine.textContent = "لطفاً روش پرداخت را انتخاب کنید";
+    subLine.textContent = "مبلغ مشخص نشده است (از صفحه بسته وارد شوید)";
+  }
+
+  // --- ارسال پارامترها به صفحات بعدی ---
+  const q = new URLSearchParams();
+  if (game) q.set("game", game);
+  if (pack) q.set("pack", pack);
+  if (price) q.set("price", price);
+
+  document.getElementById("atomaLink").href  = "atoma.html?" + q.toString();
+  document.getElementById("hawalaLink").href = "hawala.html?" + q.toString();
+</script>
+
 </body>
 </html>
