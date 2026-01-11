@@ -6,15 +6,10 @@
   --muted:rgba(234,242,255,.72);
 
   --line:rgba(174,227,251,.16);
-  --soft:rgba(174,227,251,.10);
-
   --accent:#aee3fb;
-  --accent2:#78c6ff;
 
-  --shadow: 0 18px 60px rgba(0,0,0,.55);
-  --glow: 0 0 0 1px rgba(174,227,251,.14), 0 18px 80px rgba(120,198,255,.12);
-
-  --radius: 20px;
+  --radius:22px;
+  --shadow: 0 18px 70px rgba(0,0,0,.60);
 }
 
 *{ box-sizing:border-box; }
@@ -43,7 +38,7 @@ a{ color:inherit; }
 
 .container{
   width:min(1100px, calc(100% - 24px));
-  margin: 18px auto 40px;
+  margin: 18px auto 32px;
 }
 
 .topbar{
@@ -57,55 +52,28 @@ a{ color:inherit; }
   border:1px solid var(--line);
   border-radius: var(--radius);
   background: linear-gradient(135deg, rgba(15,18,40,.70), rgba(7,8,20,.40));
-  box-shadow: var(--glow);
+  box-shadow: 0 12px 45px rgba(0,0,0,.35);
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:0;
-}
+.brand{ display:flex; align-items:center; gap:10px; min-width:0; }
 .logoImg{
-  width:46px;
-  height:46px;
-  object-fit:contain;
+  width:46px; height:46px; object-fit:contain;
   border-radius: 14px;
   background: rgba(255,255,255,.06);
   border:1px solid rgba(174,227,251,.18);
 }
-.brandText{ min-width:0; }
-.brandName{
-  font-weight:1000;
-  font-size:16px;
-  line-height:1.2;
-}
-.brandTag{
-  margin-top:2px;
-  font-size:12px;
-  color:var(--muted);
-}
-
-.actions{ display:flex; align-items:center; gap:10px; }
+.brandName{ font-weight:1000; font-size:16px; line-height:1.2; }
+.brandTag{ margin-top:2px; font-size:12px; color:var(--muted); }
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  display:inline-flex; align-items:center; justify-content:center;
   padding:10px 14px;
   border-radius: 16px;
-  border:1px solid transparent;
   text-decoration:none;
   font-weight:1000;
-  white-space:nowrap;
-  user-select:none;
-}
-.btnPrimary{
+  border:1px solid rgba(174,227,251,.24);
   background: rgba(174,227,251,.18);
-  border-color: rgba(174,227,251,.24);
-  box-shadow: 0 12px 40px rgba(0,0,0,.35);
 }
-.btnPrimary:active{ transform: translateY(1px); }
 
 .hero{
   margin-top:16px;
@@ -113,13 +81,11 @@ a{ color:inherit; }
   border-radius: var(--radius);
   border:1px solid var(--line);
   background: linear-gradient(135deg, rgba(15,18,40,.70), rgba(7,8,20,.40));
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 45px rgba(0,0,0,.35);
 }
 
 .chip{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
+  display:inline-flex; align-items:center; gap:8px;
   padding:8px 12px;
   border-radius:999px;
   border:1px solid rgba(174,227,251,.20);
@@ -129,133 +95,125 @@ a{ color:inherit; }
   font-size:12px;
 }
 
-.heroText{ margin-top: 10px; }
 .heroText h1{
-  margin:10px 0 6px;
-  font-size: 34px;
-  line-height: 1.15;
-  font-weight: 1000;
+  margin:12px 0 6px;
+  font-size:34px;
+  line-height:1.15;
+  font-weight:1000;
 }
 .heroText p{
   margin:0;
   color:var(--muted);
-  font-size: 14px;
+  font-size:14px;
 }
 
-/* --- کارت‌های تصویری مثل نمونه --- */
-.tiles{
-  margin-top: 16px;
-  display: grid;
+/* ===== Tile Grid (مثل عکس نمونه) ===== */
+.tileGrid{
+  margin-top:18px;
+  display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 22px;
+  justify-items:center;
 }
 
+/* هر tile */
 .tile{
-  text-decoration: none;
-  color: inherit;
+  width: min(360px, 100%);
+  text-decoration:none;
+  color:inherit;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
-.tileArt{
-  position: relative;
-  height: 240px;
+/* خود کارت تصویر */
+.tileCard{
+  width: 100%;
+  aspect-ratio: 1 / 1;          /* مربعی مثل نمونه */
   border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid rgba(174,227,251,.18);
-  box-shadow: 0 18px 70px rgba(0,0,0,.55);
+  overflow:hidden;
+  position:relative;
+  border:1px solid rgba(174,227,251,.18);
+  box-shadow: var(--shadow);
   background: rgba(255,255,255,.04);
 }
 
-.tileArt img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: saturate(1.05) contrast(1.06);
+/* تصویر داخل کارت */
+.tileImg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter: contrast(1.06) saturate(1.06);
 }
 
-/* افکت سه‌بعدی/مایل */
-.tilt{
-  transform: perspective(900px) rotateY(-10deg) rotateX(6deg);
+/* افکت مایل/سه‌بعدی مثل نمونه */
+.tiltL{
+  transform: perspective(1100px) rotateY(12deg) rotateX(6deg);
   transform-origin: center;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-
-.tile:hover .tilt{
-  transform: perspective(900px) rotateY(-6deg) rotateX(3deg) translateY(-2px);
+.tiltR{
+  transform: perspective(1100px) rotateY(-12deg) rotateX(6deg);
+  transform-origin: center;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.tile:hover .tiltL,
+.tile:hover .tiltR{
+  transform: perspective(1100px) rotateY(0deg) rotateX(2deg) translateY(-2px);
   border-color: rgba(174,227,251,.30);
-  box-shadow: 0 22px 90px rgba(0,0,0,.65);
+  box-shadow: 0 22px 90px rgba(0,0,0,.70);
 }
 
-.tileArt::after{
+/* نور روی کارت */
+.tileCard::after{
   content:"";
   position:absolute;
   inset:-40px;
-  background: radial-gradient(520px 280px at 80% 20%, rgba(174,227,251,.16), transparent 60%);
+  background: radial-gradient(520px 280px at 80% 20%, rgba(174,227,251,.18), transparent 60%);
   pointer-events:none;
 }
 
-/* نوار پایین */
-.tileRibbon{
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  height: 56px;
-  border-radius: 18px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding: 0 14px;
-  font-weight: 1000;
-  letter-spacing: .6px;
-  border: 1px solid rgba(255,255,255,.14);
+/* برچسب کوچک پایین/کنار مثل نمونه */
+.badge{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  padding:10px 14px;
+  border-radius: 16px;
+  font-weight:1000;
+  letter-spacing:.4px;
+  font-size:14px;
+  border:1px solid rgba(255,255,255,.14);
   backdrop-filter: blur(6px);
+  box-shadow: 0 12px 35px rgba(0,0,0,.35);
+}
+.badge.hot{
+  background: linear-gradient(90deg, rgba(255,146,41,.95), rgba(255,99,41,.75));
+}
+.badge.secure{
+  background: linear-gradient(90deg, rgba(74,170,255,.90), rgba(174,227,251,.60));
 }
 
-.tileIcon{
-  width: 36px;
-  height: 36px;
-  display:grid;
-  place-items:center;
-  border-radius: 12px;
-  background: rgba(0,0,0,.25);
-  border: 1px solid rgba(255,255,255,.16);
+/* عنوان زیر کارت مثل نمونه */
+.tileTitle{
+  margin-top:16px;
+  font-size:22px;
+  font-weight:1000;
+  letter-spacing:.6px;
+  text-align:center;
+}
+.tileCaption{
+  margin-top:8px;
+  font-size:13px;
+  color:var(--muted);
+  text-align:center;
+  line-height:1.6;
 }
 
-.tileLabel{ font-size: 14px; }
-.tileHint{
-  margin-inline-start: auto;
-  background: rgba(0,0,0,.22);
-  border: 1px solid rgba(255,255,255,.14);
-  padding: 8px 12px;
-  border-radius: 14px;
-  font-weight: 1000;
-}
-
-/* رنگ نوار */
-.tileRibbon.hot{
-  background: linear-gradient(90deg, rgba(255,146,41,.92), rgba(255,99,41,.70));
-}
-.tileRibbon.secure{
-  background: linear-gradient(90deg, rgba(74,170,255,.88), rgba(174,227,251,.55));
-}
-
-.tileName{
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 1000;
-  text-align: center;
-  color: rgba(234,242,255,.92);
-}
-.tileSub{
-  margin-top: 6px;
-  font-size: 13px;
-  text-align: center;
-  color: var(--muted);
-}
-
+/* نوت پایین */
 .note{
-  margin-top:14px;
+  margin-top:18px;
   display:flex;
   align-items:center;
   gap:10px;
@@ -274,55 +232,18 @@ a{ color:inherit; }
   box-shadow: 0 0 0 6px rgba(174,227,251,.12);
 }
 
-/* بخش‌های پایین */
-.section{
-  margin-top:16px;
-  padding: 16px;
-  border-radius: var(--radius);
-  border:1px solid var(--line);
-  background: linear-gradient(135deg, rgba(15,18,40,.55), rgba(7,8,20,.35));
-  box-shadow: 0 12px 45px rgba(0,0,0,.35);
-}
-.sectionHead h2{
-  margin:0;
-  font-size:18px;
-  font-weight:1000;
-}
-.sectionHead .muted{
-  margin:6px 0 0;
-  font-size:13px;
-}
-
-.muted{ color: var(--muted); }
-
-.quickRow{
-  margin-top:12px;
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap:10px;
-}
-.miniCard{
-  display:block;
+.ctaRow{ margin-top:14px; display:flex; justify-content:center; }
+.pill{
+  display:inline-flex;
+  padding:10px 14px;
+  border-radius:999px;
   text-decoration:none;
-  border-radius: 18px;
-  padding: 12px;
-  border:1px solid rgba(174,227,251,.16);
-  background: rgba(174,227,251,.06);
-  transition: transform .15s ease, border-color .15s ease;
-}
-.miniCard:hover{
-  transform: translateY(-1px);
-  border-color: rgba(174,227,251,.26);
-}
-.miniTitle{
   font-weight:1000;
-  font-size:14px;
-}
-.miniSub{
-  margin-top:6px;
-  font-size:12px;
+  border:1px solid rgba(174,227,251,.20);
+  background: rgba(174,227,251,.10);
 }
 
+/* فوتر */
 .footer{
   width:min(1100px, calc(100% - 24px));
   margin: 18px auto 22px;
@@ -338,19 +259,13 @@ a{ color:inherit; }
   gap:12px;
   flex-wrap:wrap;
 }
-.footerLinks{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-.link{ text-decoration: none; }
+.footerLinks{ display:flex; gap:12px; flex-wrap:wrap; }
+.muted{ color: var(--muted); }
+.link{ text-decoration:none; }
 .link:hover{ text-decoration: underline; }
 
-/* ریسپانسیو */
+/* موبایل */
 @media (max-width: 920px){
-  .tiles{ grid-template-columns: 1fr; }
-  .quickRow{ grid-template-columns: 1fr; }
-  .heroText h1{ font-size: 30px; }
-  .tilt{ transform: none; }
-  .tileArt{ height: 210px; }
+  .tileGrid{ grid-template-columns: 1fr; }
+  .tiltL, .tiltR{ transform:none; }
 }
