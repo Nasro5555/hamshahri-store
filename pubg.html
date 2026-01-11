@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>یوسی پابجی - همشهری استور</title>
+  <title>یوسی پابجی | همشهری استور</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <div class="bg"></div>
 
-  <!-- Topbar -->
+  <!-- TOP BAR -->
   <header class="topbar">
     <div class="brand">
-      <img class="logoImg" src="logo.jpg" alt="لوگو" />
+      <img class="logoImg" src="logo.jpg" alt="Hamshahri" />
       <div class="brandText">
         <div class="brandName">همشهری استور</div>
         <div class="brandTag">خرید یوسی پابجی</div>
@@ -23,163 +23,87 @@
     <div class="actions">
       <a class="btn" href="index.html">خانه</a>
       <a class="btn" href="games.html">بازی‌ها</a>
-      <a class="btn btnPrimary" href="payment.html">پرداخت</a>
+      <a class="btn btnPrimary" href="pay.html">پرداخت</a>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero cardBox">
+    <section class="hero">
       <div class="pageHead">
         <div>
           <h1>یوسی پابجی</h1>
-          <p>روی بسته مورد نظر بزنید تا به صفحه پرداخت بروید.</p>
+          <p>روی بسته موردنظر بزنید تا به صفحه پرداخت بروید.</p>
         </div>
         <a class="backLink" href="games.html">بازگشت</a>
       </div>
 
-      <!-- تصویر هدر پابجی -->
-      <img class="heroImg" src="pubg.jpg" alt="PUBG" />
+      <!-- بنر بالا (این یکی باید بزرگ باشد) -->
+      <img class="pubgHeroImg" src="pubg.jpg" alt="PUBG UC" />
 
       <!-- پک‌ها -->
-      <div class="packGrid">
+      <div class="ucGrid">
 
         <!-- 60 UC -->
-        <a class="pack" href="payment.html?game=pubg&pack=60&price=65">
-          <div class="packInner">
-            <div class="packTop">
-              <span class="tag pop">محبوب</span>
-              <span class="packIcon">🎮</span>
-            </div>
-
-            <div class="packThumb">
-              <img src="uc-60.webp" alt="۶۰ یوسی" loading="lazy" />
-            </div>
-
-            <div class="packTitle">۶۰ یوسی</div>
-
-            <div class="packPrice">
-              <div class="af">۶۵</div>
-              <div class="cur">افغانی</div>
-            </div>
-
-            <div class="packFoot">
-              <div class="tapHint">برای پرداخت بزنید</div>
-              <div class="packBtn">پرداخت</div>
-            </div>
+        <a class="ucCard" href="payment.html?game=pubg&pack=60&price=65">
+          <div class="ucMedia">
+            <img src="uc-60.webp" alt="۶۰ یوسی" />
+          </div>
+          <div class="ucInfo">
+            <p class="ucTitle">۶۰ یوسی</p>
+            <p class="ucPrice">۶۵ افغانی</p>
           </div>
         </a>
 
         <!-- 325 UC -->
-        <a class="pack" href="payment.html?game=pubg&pack=325&price=310">
-          <div class="packInner">
-            <div class="packTop">
-              <span class="tag sale">پیشنهادی</span>
-              <span class="packIcon">🎮</span>
-            </div>
-
-            <div class="packThumb">
-              <img src="uc-325.webp" alt="۳۲۵ یوسی" loading="lazy" />
-            </div>
-
-            <div class="packTitle">۳۲۵ یوسی</div>
-
-            <div class="packPrice">
-              <div class="af">۳۱۰</div>
-              <div class="cur">افغانی</div>
-            </div>
-
-            <div class="packFoot">
-              <div class="tapHint">برای پرداخت بزنید</div>
-              <div class="packBtn">پرداخت</div>
-            </div>
+        <a class="ucCard" href="payment.html?game=pubg&pack=325&price=310">
+          <div class="ucMedia">
+            <img src="uc-325.webp" alt="۳۲۵ یوسی" />
+          </div>
+          <div class="ucInfo">
+            <p class="ucTitle">۳۲۵ یوسی</p>
+            <p class="ucPrice">۳۱۰ افغانی</p>
           </div>
         </a>
 
         <!-- 660 UC -->
-        <a class="pack" href="payment.html?game=pubg&pack=660&price=610">
-          <div class="packInner">
-            <div class="packTop">
-              <span class="tag">به‌صرفه</span>
-              <span class="packIcon">🎮</span>
-            </div>
-
-            <div class="packThumb">
-              <img src="uc-660.webp" alt="۶۶۰ یوسی" loading="lazy" />
-            </div>
-
-            <div class="packTitle">۶۶۰ یوسی</div>
-
-            <div class="packPrice">
-              <div class="af">۶۱۰</div>
-              <div class="cur">افغانی</div>
-            </div>
-
-            <div class="packFoot">
-              <div class="tapHint">برای پرداخت بزنید</div>
-              <div class="packBtn">پرداخت</div>
-            </div>
+        <a class="ucCard" href="payment.html?game=pubg&pack=660&price=610">
+          <div class="ucMedia">
+            <img src="uc-660.webp" alt="۶۶۰ یوسی" />
+          </div>
+          <div class="ucInfo">
+            <p class="ucTitle">۶۶۰ یوسی</p>
+            <p class="ucPrice">۶۱۰ افغانی</p>
           </div>
         </a>
 
         <!-- 1800 UC -->
-        <a class="pack" href="payment.html?game=pubg&pack=1800&price=1520">
-          <div class="packInner">
-            <div class="packTop">
-              <span class="tag">ویژه</span>
-              <span class="packIcon">🎮</span>
-            </div>
-
-            <div class="packThumb">
-              <img src="uc-1800.webp" alt="۱۸۰۰ یوسی" loading="lazy" />
-            </div>
-
-            <div class="packTitle">۱۸۰۰ یوسی</div>
-
-            <div class="packPrice">
-              <div class="af">۱۵۲۰</div>
-              <div class="cur">افغانی</div>
-            </div>
-
-            <div class="packFoot">
-              <div class="tapHint">برای پرداخت بزنید</div>
-              <div class="packBtn">پرداخت</div>
-            </div>
+        <a class="ucCard" href="payment.html?game=pubg&pack=1800&price=1520">
+          <div class="ucMedia">
+            <img src="uc-1800.webp" alt="۱۸۰۰ یوسی" />
+          </div>
+          <div class="ucInfo">
+            <p class="ucTitle">۱۸۰۰ یوسی</p>
+            <p class="ucPrice">۱۵۲۰ افغانی</p>
           </div>
         </a>
 
         <!-- 3850 UC -->
-        <a class="pack" href="payment.html?game=pubg&pack=3850&price=2950">
-          <div class="packInner">
-            <div class="packTop">
-              <span class="tag">بزرگ</span>
-              <span class="packIcon">🎮</span>
-            </div>
-
-            <div class="packThumb">
-              <img src="uc-3850.webp" alt="۳۸۵۰ یوسی" loading="lazy" />
-            </div>
-
-            <div class="packTitle">۳۸۵۰ یوسی</div>
-
-            <div class="packPrice">
-              <div class="af">۲۹۵۰</div>
-              <div class="cur">افغانی</div>
-            </div>
-
-            <div class="packFoot">
-              <div class="tapHint">برای پرداخت بزنید</div>
-              <div class="packBtn">پرداخت</div>
-            </div>
+        <a class="ucCard" href="payment.html?game=pubg&pack=3850&price=2950">
+          <div class="ucMedia">
+            <img src="uc-3850.webp" alt="۳۸۵۰ یوسی" />
+          </div>
+          <div class="ucInfo">
+            <p class="ucTitle">۳۸۵۰ یوسی</p>
+            <p class="ucPrice">۲۹۵۰ افغانی</p>
           </div>
         </a>
 
       </div>
 
       <p class="smallNote">
-        بعد از پرداخت، رسید را ارسال کنید. اگر تا ۱۰ دقیقه یوسی ارسال نشد، در واتساپ پیام دهید.
+        اگر تا ۱۰ دقیقه پیگر یوسی ارسال نشد، به واتساپ پیام دهید.
       </p>
     </section>
   </main>
-
 </body>
 </html>
