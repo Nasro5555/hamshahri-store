@@ -449,3 +449,38 @@ html{ scroll-behavior: smooth; }
 .page-payment {
   padding-top: 12px;
 }
+/* =========================
+   FIX WEBP IMAGE BREAK (ADD AT END)
+   ========================= */
+
+/* قانون طلایی برای همه عکس‌ها */
+img {
+  max-width: 100%;
+  height: auto !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* عکس‌های داخل کارت‌ها / محصولات */
+.product-media,
+.product-img,
+.image-box {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  overflow: hidden;
+}
+
+/* مخصوص WebP (خیلی مهم) */
+img[src$=".webp"] {
+  object-fit: contain !important;
+  background: transparent;
+}
+
+/* اگر قبلاً height:100% باعث خرابی شده */
+.product-media img,
+.card img {
+  width: 100%;
+  height: auto !important;
+  max-height: 320px; /* اگر خواستی عددش رو عوض کن */
+}
