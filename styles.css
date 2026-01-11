@@ -398,3 +398,54 @@ img{
    Optional: Smooth scrolling
    ========================= */
 html{ scroll-behavior: smooth; }
+/* =========================
+   PAYMENT PAGE PATCH (add at end)
+   ========================= */
+
+/* اگر صفحه پرداختت کلاس/آی‌دی خاص دارد این‌ها کمک می‌کند
+   (روی بقیه صفحات اثر خیلی کم دارد) */
+
+/* جلوگیری از کش آمدن عکس بزرگ در پرداخت */
+.payment-page img,
+#payment img,
+.page-payment img {
+  width: 100%;
+  height: auto !important;
+  max-height: 420px;     /* مقدارش را اگر خواستی کم/زیاد کن */
+  object-fit: contain !important;
+}
+
+/* اگر بنر/عکس پرداخت داخل یک باکس است، ارتفاعش منطقی شود */
+.payment-page .product-media,
+#payment .product-media,
+.page-payment .product-media {
+  aspect-ratio: auto !important;
+  height: auto !important;
+}
+
+/* اگر کارت‌های پرداخت خیلی باریک/بد چیدمان شدند */
+.payment-page .grid,
+#payment .grid,
+.page-payment .grid {
+  grid-template-columns: 1fr !important;
+}
+
+/* دکمه‌ها و باکس آپلود رسید در موبایل قشنگ‌تر */
+.payment-page .product-actions,
+#payment .product-actions,
+.page-payment .product-actions {
+  flex-wrap: wrap;
+}
+
+.payment-page .btn,
+#payment .btn,
+.page-payment .btn {
+  width: 100%;
+}
+
+/* اگر ناوبار روی محتوا می‌افتد و فاصله بالا کم است */
+.payment-page,
+#payment,
+.page-payment {
+  padding-top: 12px;
+}
