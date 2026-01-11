@@ -2,10 +2,12 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>همشهری استور</title>
+  <meta name="description" content="همشهری استور | فروش آنلاین گیم و VPN | ۷ سال اعتماد سازی" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <div class="bg"></div>
 
@@ -19,32 +21,79 @@
     </div>
 
     <div class="actions">
-      <a class="btn btnPrimary" href="https://wa.me/93783019744" target="_blank" rel="noreferrer">واتساپ</a>
+      <a class="btn btnPrimary" href="https://wa.me/93783019744" target="_blank" rel="noreferrer">
+        واتساپ
+      </a>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero" style="grid-template-columns:1fr;">
+    <section class="hero">
       <div class="heroLeft">
         <div class="chip">Gaming • VPN • Top-up</div>
         <h1 class="heroTitle">به همشهری استور خوش آمدید</h1>
         <p class="heroSub">لطفاً یک گزینه را انتخاب کنید</p>
 
-        <div class="splitGrid" style="margin-top:16px;">
-          <a class="bigCard hasImage" href="games.html" style="--bg:url('games.jpg?v=5')">
-            <div class="bigIcon">🎮</div>
-            <div class="bigTitle">بازی‌ها</div>
-            <div class="bigSub muted">PUBG • Clash • CODM • Mobile Legends</div>
+        <div class="splitGrid">
+          <!-- کارت Games -->
+          <a class="bigCard hasImage" href="games.html" style="--bg:url('games.jpg');">
+            <div class="bigTop">
+              <div class="bigIcon">🎮</div>
+              <div class="bigMeta">
+                <div class="bigTitle">بازی‌ها</div>
+                <div class="bigSub">PUBG • Clash • CODM • Mobile Legends</div>
+              </div>
+            </div>
             <div class="bigGo">ورود →</div>
           </a>
 
-          <a class="bigCard hasImage" href="vpn.html" style="--bg:url('vpn.jpg?v=5')">
-            <div class="bigIcon">🛡️</div>
-            <div class="bigTitle">VPN</div>
-            <div class="bigSub muted">ExpressVPN • NordVPN</div>
+          <!-- کارت VPN -->
+          <a class="bigCard hasImage" href="vpn.html" style="--bg:url('vpn.jpg');">
+            <div class="bigTop">
+              <div class="bigIcon">🛡️</div>
+              <div class="bigMeta">
+                <div class="bigTitle">VPN</div>
+                <div class="bigSub">ExpressVPN • NordVPN</div>
+              </div>
+            </div>
             <div class="bigGo">ورود →</div>
           </a>
         </div>
+
+        <div class="note">
+          <span class="dot"></span>
+          برای سفارش سریع، روی واتساپ بزنید.
+        </div>
+
+        <!-- نکته برای آینده (عکس‌های بیشتر)
+          بعداً اگر خواستی عکس‌ها را عوض کنی، فقط فایل‌ها را با این اسم‌ها آپلود کن:
+          - games.jpg  (عکس بخش بازی‌ها)
+          - vpn.jpg    (عکس بخش VPN)
+        -->
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionHead">
+        <h2>دسترسی سریع</h2>
+        <p class="muted">می‌توانید مستقیم وارد صفحه فروش UC پابجی شوید</p>
+      </div>
+
+      <div class="quickRow">
+        <a class="miniCard" href="pubg.html">
+          <div class="miniTitle">فروش UC پابجی</div>
+          <div class="miniSub muted">لیست پکیج‌ها و سفارش واتساپ</div>
+        </a>
+
+        <a class="miniCard" href="games.html">
+          <div class="miniTitle">همه بازی‌ها</div>
+          <div class="miniSub muted">انتخاب بازی و سفارش</div>
+        </a>
+
+        <a class="miniCard" href="vpn.html">
+          <div class="miniTitle">VPN ها</div>
+          <div class="miniSub muted">ExpressVPN • NordVPN</div>
+        </a>
       </div>
     </section>
   </main>
@@ -52,8 +101,11 @@
   <footer class="footer">
     <div class="footerInner">
       <div class="muted">© همشهری استور</div>
-      <a class="muted link" href="games.html">Games</a>
-      <a class="muted link" href="vpn.html">VPN</a>
+      <div class="footerLinks">
+        <a class="muted link" href="games.html">Games</a>
+        <a class="muted link" href="vpn.html">VPN</a>
+        <a class="muted link" href="pubg.html">PUBG UC</a>
+      </div>
     </div>
   </footer>
 </body>
