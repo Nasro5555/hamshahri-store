@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>همشهری استور</title>
-  <meta name="description" content="همشهری استور | فروش آنلاین گیم و VPN | ۷ سال اعتماد سازی" />
+  <meta name="description" content="همشهری استور | فروش آنلاین گیم و VPN | سفارش سریع در واتساپ" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -29,47 +29,47 @@
 
   <main class="container">
     <section class="hero">
-      <div class="heroLeft">
-        <div class="chip">Gaming • VPN • Top-up</div>
-        <h1 class="heroTitle">به همشهری استور خوش آمدید</h1>
-        <p class="heroSub">لطفاً یک گزینه را انتخاب کنید</p>
+      <div class="chip">Gaming • VPN • Top-up</div>
 
-        <div class="splitGrid">
-          <!-- کارت Games -->
-          <a class="bigCard hasImage" href="games.html" style="--bg:url('games.jpg');">
-            <div class="bigTop">
-              <div class="bigIcon">🎮</div>
-              <div class="bigMeta">
-                <div class="bigTitle">بازی‌ها</div>
-                <div class="bigSub">PUBG • Clash • CODM • Mobile Legends</div>
-              </div>
+      <div class="heroText">
+        <h1>به همشهری استور خوش آمدید</h1>
+        <p>لطفاً یک گزینه را انتخاب کنید</p>
+      </div>
+
+      <!-- کارت‌ها مثل نمونه -->
+      <div class="tiles">
+        <!-- Games -->
+        <a class="tile" href="games.html" aria-label="بازی‌ها">
+          <div class="tileArt tilt">
+            <img src="games.jpg" alt="Games" />
+            <div class="tileRibbon hot">
+              <span class="tileIcon">🎮</span>
+              <span class="tileLabel">GAMES</span>
+              <span class="tileHint">ورود →</span>
             </div>
-            <div class="bigGo">ورود →</div>
-          </a>
+          </div>
+          <div class="tileName">بازی‌ها</div>
+          <div class="tileSub">PUBG • Clash • CODM • Mobile Legends</div>
+        </a>
 
-          <!-- کارت VPN -->
-          <a class="bigCard hasImage" href="vpn.html" style="--bg:url('vpn.jpg');">
-            <div class="bigTop">
-              <div class="bigIcon">🛡️</div>
-              <div class="bigMeta">
-                <div class="bigTitle">VPN</div>
-                <div class="bigSub">ExpressVPN • NordVPN</div>
-              </div>
+        <!-- VPN -->
+        <a class="tile" href="vpn.html" aria-label="VPN">
+          <div class="tileArt tilt">
+            <img src="vpn.jpg" alt="VPN" />
+            <div class="tileRibbon secure">
+              <span class="tileIcon">🛡️</span>
+              <span class="tileLabel">VPN</span>
+              <span class="tileHint">ورود →</span>
             </div>
-            <div class="bigGo">ورود →</div>
-          </a>
-        </div>
+          </div>
+          <div class="tileName">VPN</div>
+          <div class="tileSub">ExpressVPN • NordVPN</div>
+        </a>
+      </div>
 
-        <div class="note">
-          <span class="dot"></span>
-          برای سفارش سریع، روی واتساپ بزنید.
-        </div>
-
-        <!-- نکته برای آینده (عکس‌های بیشتر)
-          بعداً اگر خواستی عکس‌ها را عوض کنی، فقط فایل‌ها را با این اسم‌ها آپلود کن:
-          - games.jpg  (عکس بخش بازی‌ها)
-          - vpn.jpg    (عکس بخش VPN)
-        -->
+      <div class="note">
+        <span class="dot"></span>
+        برای سفارش سریع، روی واتساپ بزنید.
       </div>
     </section>
 
@@ -108,5 +108,7 @@
       </div>
     </div>
   </footer>
+
+  <!-- نکته: بعداً برای هر بازی/VPN هم همین کارت‌ها را در games.html / vpn.html می‌سازیم -->
 </body>
 </html>
