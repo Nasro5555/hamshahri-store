@@ -733,3 +733,61 @@ a{ color:inherit; }
   .payGrid{ grid-template-columns: 1fr; }
   .payCard{ height: 170px; }
 }
+/* ===== details.html styles ===== */
+.receiptPreviewBox{
+  margin-top:14px;
+  padding:14px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(174,227,251,.16);
+  background: rgba(255,255,255,.04);
+}
+.receiptTitle{
+  font-weight: 1000;
+  margin-bottom:10px;
+}
+.receiptPreview{
+  width:100%;
+  max-height:420px;
+  object-fit:contain;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.20);
+}
+.formBox{
+  margin-top:14px;
+  padding:16px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(174,227,251,.16);
+  background: rgba(255,255,255,.03);
+}
+.formTitle{
+  font-weight: 1100;
+  margin-bottom:12px;
+}
+.fieldLabel{
+  display:block;
+  margin: 10px 0 8px;
+  font-weight: 900;
+  color: rgba(234,242,255,.85);
+}
+.fieldInput{
+  width:100%;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  outline:none;
+}
+.fieldInput::placeholder{ color: rgba(234,242,255,.45); font-weight: 800; }
+.btnPrimaryWide{
+  width:100%;
+  margin-top:14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(174,227,251,.24);
+  background: rgba(174,227,251,.16);
+  color: var(--text);
+  font-weight: 1100;
+  font-size: 15px;
+}
