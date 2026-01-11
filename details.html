@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>اطلاعات سفارش</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <div class="container">
+    <div class="hero">
+      <a class="backLink link" href="index.html">بازگشت به صفحه اصلی</a>
+
+      <div class="heroText" style="margin-top:12px;">
+        <h1 id="h1">تکمیل سفارش</h1>
+        <p class="muted" id="desc">—</p>
+      </div>
+
+      <div class="receiptPreviewBox">
+        <div class="receiptTitle">رسید انتخاب‌شده</div>
+        <img id="preview" class="receiptPreview" alt="رسید" />
+        <div id="noPreview" class="muted" style="font-weight:900; display:none;">
+          رسید پیدا نشد. لطفاً دوباره برگردید و رسید را انتخاب کنید.
+        </div>
+      </div>
+
+      <!-- PUBG ONLY -->
+      <div id="pubgForm" class="formBox">
+        <div class="formTitle">اطلاعات پابجی</div>
+
+        <label class="fieldLabel">نام داخل بازی پابجی</label>
+        <input id="pubgName" class="fieldInput" type="text" placeholder="مثال: Nasro" />
+
+        <label class="fieldLabel">ایدی پابجی</label>
+        <input id="pubgId" class="fieldInput" type="text" inputmode="numeric" placeholder="مثال: 1234567890" />
+
+        <button id="sendBtn" class="btnPrimaryWide" type="button">
+          ارسال نهایی
+        </button>
+
+        <div class="smallNote" style="margin-top:12px;">
+          اگر تا ۱۰ دقیقه یوسی ارسال نشد، به واتساپ پیام دهید.
+        </div>
+      </div>
+
+      <!-- For other games later -->
+      <div id
