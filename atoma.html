@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>پرداخت - مومو atoma</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>مومو atoma | پرداخت</title>
+  <link rel="stylesheet" href="styles.css?v=1" />
 </head>
 <body>
   <div class="bg"></div>
 
-  <div class="container">
-    <div class="hero">
-      <a class="backLink link" href="pay.html">بازگشت</a>
+  <main class="container">
+    <section class="hero">
+      <a class="backLink" href="javascript:history.back()">بازگشت</a>
 
-      <div class="heroText" style="margin-top:12px;">
-        <h1 id="title">مومو atoma</h1>
-        <p class="muted" id="amountLine">—</p>
+      <div class="heroText">
+        <h1 id="amountLine">مومو atoma</h1>
+        <p class="muted">به شماره زیر مومو ارسال کنید و سپس رسید را آپلود کنید</p>
       </div>
 
       <div class="payInfoCard">
@@ -23,85 +23,53 @@
         <div class="payName">نام: Nasrullah qanbari</div>
       </div>
 
-      <div class="smallNote" style="margin-top:12px;">
-        به شماره بالا <b>مومو</b> را ارسال کنید و سپس رسید را از طریق دکمه پایین ارسال کنید.
-      </div>
-
-      <div class="receiptBox">
-        <div class="receiptTitle">ارسال رسید</div>
-
+      <div style="margin-top:16px;">
         <label class="fileBtn">
           انتخاب رسید
           <input id="receipt" type="file" accept="image/*" />
         </label>
-
-        <div id="fileHint" class="muted" style="font-weight:900; font-size:12px; margin-top:10px;">
-          هنوز فایلی انتخاب نشده
-        </div>
-
-        <button id="goNext" class="btnPrimaryWide" disabled>
-          ادامه
-        </button>
+        <div id="fileHint" class="smallNote">هنوز فایلی انتخاب نشده</div>
+        <button id="goNext" class="btnPrimaryWide" disabled>ادامه</button>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
 <script>
-  // پارامترها از لینک
   const params = new URLSearchParams(location.search);
-  const amount = params.get("amount");
-  const item   = params.get("item");
-  const game   = params.get("game");
-  const method = "atoma";
+  const game = params.get("game") || "";
+  const pack = params.get("pack") || "";
+  const price = params.get("price") || "";
+  const toFa = (s)=> String(s).replace(/[0-9]/g, d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
 
-  // نمایش مبلغ
-  if (amount) {
-    document.getElementById("amountLine").textContent =
-      (item ? `برای بسته ${item} یوسی، ` : "") + `${amount} افغانی پرداخت کنید`;
-  } else {
-    document.getElementById("amountLine").textContent = "لطفاً مبلغ را پرداخت کنید";
-  }
+  if (price) document.getElementById("amountLine").textContent = `${toFa(price)} افغانی پرداخت کنید`;
 
-  // ذخیره اطلاعات سفارش برای صفحه بعد
-  function saveOrderMeta() {
-    sessionStorage.setItem("order_amount", amount || "");
-    sessionStorage.setItem("order_item", item || "");
-    sessionStorage.setItem("order_game", game || "");
-    sessionStorage.setItem("order_method", method);
-  }
-
-  // رسید را به sessionStorage ذخیره می‌کنیم تا در صفحه بعد هم داشته باشیم
   const receiptInput = document.getElementById("receipt");
   const fileHint = document.getElementById("fileHint");
   const goNext = document.getElementById("goNext");
 
-  receiptInput.addEventListener("change", async () => {
+  receiptInput.addEventListener("change", () => {
     const f = receiptInput.files?.[0];
     if (!f) return;
-
     fileHint.textContent = `انتخاب شد: ${f.name}`;
-    goNext.disabled = true;
 
-    // فایل را Base64 می‌کنیم (برای انتقال بین صفحات)
     const reader = new FileReader();
     reader.onload = () => {
       sessionStorage.setItem("receipt_dataurl", reader.result);
-      sessionStorage.setItem("receipt_name", f.name);
-      sessionStorage.setItem("receipt_type", f.type || "image/jpeg");
-      saveOrderMeta();
+      sessionStorage.setItem("order_game", game);
+      sessionStorage.setItem("order_pack", pack);
+      sessionStorage.setItem("order_price", price);
+      sessionStorage.setItem("order_method", "atoma");
       goNext.disabled = false;
     };
     reader.readAsDataURL(f);
   });
 
   goNext.addEventListener("click", () => {
-    // پارامترها را هم پاس می‌دهیم (برای نمایش)
     const q = new URLSearchParams();
-    if (amount) q.set("amount", amount);
-    if (item) q.set("item", item);
     if (game) q.set("game", game);
-    q.set("method", method);
-
+    if (pack) q.set("pack", pack);
+    if (price) q.set("price", price);
+    q.set("method", "atoma");
     location.href = "details.html?" + q.toString();
   });
 </script>
