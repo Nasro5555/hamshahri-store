@@ -36,34 +36,26 @@
         <p>لطفاً یک گزینه را انتخاب کنید</p>
       </div>
 
-      <!-- کارت‌ها مثل نمونه -->
-      <div class="tiles">
-        <!-- Games -->
+      <!-- کارت‌های Tile مثل نمونه -->
+      <div class="tileGrid">
+        <!-- Games Tile -->
         <a class="tile" href="games.html" aria-label="بازی‌ها">
-          <div class="tileArt tilt">
-            <img src="games.jpg" alt="Games" />
-            <div class="tileRibbon hot">
-              <span class="tileIcon">🎮</span>
-              <span class="tileLabel">GAMES</span>
-              <span class="tileHint">ورود →</span>
-            </div>
+          <div class="tileCard tiltL">
+            <img class="tileImg" src="games.jpg" alt="Games" />
+            <span class="badge hot">HOT</span>
           </div>
-          <div class="tileName">بازی‌ها</div>
-          <div class="tileSub">PUBG • Clash • CODM • Mobile Legends</div>
+          <div class="tileTitle">GAMES</div>
+          <div class="tileCaption">PUBG • Clash • CODM • Mobile Legends</div>
         </a>
 
-        <!-- VPN -->
+        <!-- VPN Tile -->
         <a class="tile" href="vpn.html" aria-label="VPN">
-          <div class="tileArt tilt">
-            <img src="vpn.jpg" alt="VPN" />
-            <div class="tileRibbon secure">
-              <span class="tileIcon">🛡️</span>
-              <span class="tileLabel">VPN</span>
-              <span class="tileHint">ورود →</span>
-            </div>
+          <div class="tileCard tiltR">
+            <img class="tileImg" src="vpn.jpg" alt="VPN" />
+            <span class="badge secure">SECURE</span>
           </div>
-          <div class="tileName">VPN</div>
-          <div class="tileSub">ExpressVPN • NordVPN</div>
+          <div class="tileTitle">VPN</div>
+          <div class="tileCaption">ExpressVPN • NordVPN</div>
         </a>
       </div>
 
@@ -71,29 +63,9 @@
         <span class="dot"></span>
         برای سفارش سریع، روی واتساپ بزنید.
       </div>
-    </section>
 
-    <section class="section">
-      <div class="sectionHead">
-        <h2>دسترسی سریع</h2>
-        <p class="muted">می‌توانید مستقیم وارد صفحه فروش UC پابجی شوید</p>
-      </div>
-
-      <div class="quickRow">
-        <a class="miniCard" href="pubg.html">
-          <div class="miniTitle">فروش UC پابجی</div>
-          <div class="miniSub muted">لیست پکیج‌ها و سفارش واتساپ</div>
-        </a>
-
-        <a class="miniCard" href="games.html">
-          <div class="miniTitle">همه بازی‌ها</div>
-          <div class="miniSub muted">انتخاب بازی و سفارش</div>
-        </a>
-
-        <a class="miniCard" href="vpn.html">
-          <div class="miniTitle">VPN ها</div>
-          <div class="miniSub muted">ExpressVPN • NordVPN</div>
-        </a>
+      <div class="ctaRow">
+        <a class="pill" href="pubg.html">ورود مستقیم به فروش UC پابجی →</a>
       </div>
     </section>
   </main>
@@ -108,7 +80,5 @@
       </div>
     </div>
   </footer>
-
-  <!-- نکته: بعداً برای هر بازی/VPN هم همین کارت‌ها را در games.html / vpn.html می‌سازیم -->
 </body>
 </html>
