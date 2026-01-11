@@ -1,77 +1,94 @@
-/* ================================
-   Hamshahri Store - Full Stylesheet
-   RTL / Gaming / Glass UI
-   ================================ */
+/* =========================================================
+   Hamshahri Store — Pro Gaming UI (RTL)
+   Single-file stylesheet for:
+   - index.html (main tiles)
+   - games.html (2 cards per row)
+   - pubg.html (price packs like Midasbuy, no cart)
+   ========================================================= */
 
-/* --- Base --- */
+/* ---------- Variables ---------- */
 :root{
-  --bg1: #070a14;
-  --bg2: #0b1022;
-  --panel: rgba(255,255,255,.06);
-  --panel2: rgba(255,255,255,.035);
-  --line: rgba(174,227,251,.16);
+  --bg0:#060813;
+  --bg1:#0a1024;
 
-  --text: rgba(245,248,255,.96);
-  --muted: rgba(234,242,255,.70);
+  --text:#eef4ff;
+  --muted:rgba(238,244,255,.72);
 
-  --accent: rgba(174,227,251,.24);
-  --accent2: rgba(174,227,251,.16);
+  --line:rgba(174,227,251,.16);
+  --glass:rgba(255,255,255,.06);
+  --glass2:rgba(255,255,255,.035);
 
-  --radius: 26px;
-  --radius2: 22px;
+  --blue:rgba(74,170,255,.95);
+  --cyan:rgba(174,227,251,.95);
+  --orange:rgba(255,146,41,.95);
 
-  --shadow: 0 18px 60px rgba(0,0,0,.55);
+  --radius:26px;
+  --radius2:20px;
+
+  --shadow: 0 18px 60px rgba(0,0,0,.58);
+  --shadow2: 0 14px 45px rgba(0,0,0,.45);
 }
 
-*{ box-sizing: border-box; }
-html,body{ height: 100%; }
+/* ---------- Reset / Base ---------- */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 body{
-  margin: 0;
+  margin:0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  color: var(--text);
-  background: radial-gradient(1200px 600px at 20% 10%, rgba(90,140,255,.18), transparent 55%),
-              radial-gradient(900px 500px at 85% 20%, rgba(80,255,220,.10), transparent 60%),
-              linear-gradient(180deg, var(--bg1), var(--bg2));
-  overflow-x: hidden;
+  color:var(--text);
+
+  /* RTL Persian */
+  direction: rtl;
+  text-align: right;
+
+  background:
+    radial-gradient(1100px 520px at 18% 6%, rgba(74,170,255,.18), transparent 58%),
+    radial-gradient(900px 520px at 82% 14%, rgba(174,227,251,.12), transparent 60%),
+    radial-gradient(820px 420px at 40% 92%, rgba(120,90,255,.10), transparent 62%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  overflow-x:hidden;
 }
 
-/* subtle animated glow background */
+/* Soft glow layer */
 .bg{
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
+  position:fixed;
+  inset:0;
+  pointer-events:none;
   background:
-    radial-gradient(900px 420px at 30% 25%, rgba(174,227,251,.10), transparent 55%),
-    radial-gradient(700px 360px at 70% 65%, rgba(120,90,255,.10), transparent 60%);
-  filter: blur(0px);
-  opacity: .95;
+    radial-gradient(760px 380px at 28% 26%, rgba(174,227,251,.09), transparent 62%),
+    radial-gradient(720px 360px at 72% 68%, rgba(74,170,255,.09), transparent 60%);
+  opacity:.95;
 }
 
 /* Links */
-a{ color: inherit; }
-.link{ text-decoration: none; }
-.muted{ color: var(--muted); }
+a{ color:inherit; }
+.link{ text-decoration:none; }
+.muted{ color:var(--muted); }
 
-/* --- Layout --- */
+/* ---------- Layout ---------- */
 .container{
-  width: min(980px, calc(100% - 28px));
+  width:min(1020px, calc(100% - 26px));
   margin: 0 auto;
   padding: 18px 0 34px;
 }
 
-/* --- Topbar --- */
+/* ---------- Topbar ---------- */
 .topbar{
-  width: min(980px, calc(100% - 28px));
+  width:min(1020px, calc(100% - 26px));
   margin: 16px auto 0;
   padding: 14px 16px;
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap: 14px;
+  gap: 12px;
+
+  border-radius: var(--radius);
+  border:1px solid var(--line);
+
+  background: linear-gradient(135deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
 }
 
 .brand{
@@ -80,29 +97,30 @@ a{ color: inherit; }
   gap: 12px;
   min-width: 0;
 }
+
 .logoImg{
   width: 54px;
   height: 54px;
   border-radius: 18px;
+  object-fit: contain;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
-  object-fit: contain;
   padding: 6px;
 }
+
 .brandText{ min-width:0; }
 .brandName{
   font-weight: 1000;
   font-size: 18px;
-  letter-spacing: .2px;
   line-height: 1.1;
 }
 .brandTag{
   margin-top: 6px;
-  color: var(--muted);
   font-size: 12.5px;
   font-weight: 800;
+  color: var(--muted);
   white-space: nowrap;
-  overflow: hidden;
+  overflow:hidden;
   text-overflow: ellipsis;
 }
 
@@ -126,20 +144,25 @@ a{ color: inherit; }
   text-decoration:none;
   font-weight: 1000;
   font-size: 13px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  transition: transform .12s ease, filter .12s ease, border-color .12s ease;
 }
+.btn:hover{ border-color: rgba(174,227,251,.22); }
+.btn:active{ transform: translateY(1px) scale(.99); filter: brightness(1.06); }
+
 .btnPrimary{
-  border-color: rgba(174,227,251,.24);
+  border-color: rgba(174,227,251,.26);
   background: rgba(174,227,251,.14);
 }
 
-/* --- Hero section (main card) --- */
+/* ---------- Main hero card ---------- */
 .hero{
   padding: 18px 16px 22px;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
   box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
 }
 
 .chip{
@@ -150,14 +173,12 @@ a{ color: inherit; }
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.06);
-  color: rgba(234,242,255,.85);
-  font-weight: 900;
+  color: rgba(238,244,255,.86);
+  font-weight: 1000;
   font-size: 13px;
 }
 
-.heroText{
-  margin-top: 10px;
-}
+.heroText{ margin-top: 10px; }
 .heroText h1{
   margin: 10px 0 0;
   font-size: 36px;
@@ -170,7 +191,7 @@ a{ color: inherit; }
   font-weight: 800;
 }
 
-/* --- Tiles (Games / VPN) --- */
+/* ---------- Index tiles (Games/VPN) ---------- */
 .tileGrid{
   margin-top: 18px;
   display:grid;
@@ -179,52 +200,48 @@ a{ color: inherit; }
 }
 
 .tile{
-  text-decoration:none;
   display:block;
+  text-decoration:none;
 }
 
 .tileCard{
   position: relative;
   border-radius: 26px;
-  overflow: hidden;
+  overflow:hidden;
   border: 1px solid rgba(174,227,251,.16);
   background: rgba(0,0,0,.18);
-  box-shadow: 0 14px 55px rgba(0,0,0,.45);
+  box-shadow: var(--shadow2);
+  transition: transform .15s ease, border-color .15s ease, filter .15s ease;
+}
+
+.tile:hover .tileCard{
+  transform: translateY(-2px);
+  border-color: rgba(174,227,251,.26);
+  filter: brightness(1.03);
 }
 
 .tileImg{
   width: 100%;
-  height: 180px;
+  height: 185px;
   object-fit: cover;
+  object-position:center;
   display:block;
-  filter: saturate(1.05) contrast(1.05);
+  filter: saturate(1.06) contrast(1.06);
 }
 
-/* glass bar on tile image */
+/* glass bar */
 .tileCard::after{
   content:"";
   position:absolute;
   inset:auto 14px 14px 14px;
   height: 52px;
   border-radius: 18px;
-  background: linear-gradient(90deg, rgba(255,255,255,.20), rgba(255,255,255,.10));
+  background: linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,.10));
   border: 1px solid rgba(255,255,255,.18);
   backdrop-filter: blur(10px);
 }
 
-.tileTitle{
-  margin-top: 10px;
-  font-size: 22px;
-  font-weight: 1100;
-}
-
-.tileCaption{
-  margin-top: 6px;
-  color: var(--muted);
-  font-weight: 800;
-}
-
-/* badges */
+/* Badge */
 .badge{
   position:absolute;
   top: 12px;
@@ -246,34 +263,40 @@ a{ color: inherit; }
   border-color: rgba(74,170,255,.30);
 }
 
-/* tilt variants */
-.tiltL{ transform: rotate(-1deg); }
-.tiltR{ transform: rotate(1deg); }
+.tileTitle{
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 1100;
+}
+.tileCaption{
+  margin-top: 6px;
+  color: var(--muted);
+  font-weight: 800;
+}
 
-/* note line */
+/* Note line */
 .note{
   margin-top: 14px;
   padding: 12px 14px;
   border-radius: 999px;
   border: 1px dashed rgba(174,227,251,.20);
   background: rgba(174,227,251,.06);
-  color: rgba(234,242,255,.82);
+  color: rgba(238,244,255,.84);
   display:flex;
   align-items:center;
   gap: 10px;
-  font-weight: 900;
+  font-weight: 1000;
 }
 .dot{
   width: 10px;
   height: 10px;
   border-radius: 999px;
   background: rgba(174,227,251,.85);
-  box-shadow: 0 0 18px rgba(174,227,251,.65);
+  box-shadow: 0 0 18px rgba(174,227,251,.55);
 }
 
-.ctaRow{
-  margin-top: 14px;
-}
+/* CTA pill */
+.ctaRow{ margin-top: 14px; }
 .pill{
   display:inline-flex;
   align-items:center;
@@ -283,12 +306,14 @@ a{ color: inherit; }
   border: 1px solid rgba(174,227,251,.22);
   background: rgba(174,227,251,.12);
   text-decoration:none;
-  font-weight: 1000;
+  font-weight: 1100;
+  transition: transform .12s ease, filter .12s ease, border-color .12s ease;
 }
+.pill:active{ transform: translateY(1px); filter: brightness(1.06); }
 
-/* --- Footer --- */
+/* ---------- Footer ---------- */
 .footer{
-  width: min(980px, calc(100% - 28px));
+  width: min(1020px, calc(100% - 26px));
   margin: 16px auto 26px;
 }
 .footerInner{
@@ -300,6 +325,7 @@ a{ color: inherit; }
   border-radius: var(--radius);
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.03);
+  backdrop-filter: blur(10px);
 }
 .footerLinks{
   display:flex;
@@ -312,9 +338,7 @@ a{ color: inherit; }
   font-size: 13px;
 }
 
-/* =========================
-   Page head + content cards
-   ========================= */
+/* ---------- Page head + content card ---------- */
 .pageHead{
   display:flex;
   align-items:flex-end;
@@ -343,7 +367,9 @@ a{ color: inherit; }
   background: rgba(174,227,251,.06);
   font-weight: 1000;
   font-size: 13px;
+  transition: transform .12s ease, filter .12s ease;
 }
+.backLink:active{ transform: translateY(1px); filter: brightness(1.06); }
 
 .cardBox{
   padding: 16px;
@@ -355,16 +381,14 @@ a{ color: inherit; }
 
 .heroImg{
   width:100%;
-  height: 200px;
+  height: 210px;
   object-fit: cover;
+  object-position:center;
   border-radius: 22px;
   border:1px solid rgba(174,227,251,.16);
 }
 
-/* =========================
-   Midasbuy-style price cards
-   (No cart, tap to WhatsApp)
-   ========================= */
+/* ---------- Price packs (Midasbuy style, No cart) ---------- */
 .packGrid{
   margin-top: 14px;
   display:grid;
@@ -378,11 +402,14 @@ a{ color: inherit; }
   overflow: hidden;
   border:1px solid rgba(174,227,251,.16);
   background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  box-shadow: 0 14px 45px rgba(0,0,0,.45);
+  box-shadow: var(--shadow2);
   text-decoration:none;
   color: inherit;
   min-height: 168px;
+  transition: transform .14s ease, filter .14s ease, border-color .14s ease;
 }
+.pack:hover{ border-color: rgba(174,227,251,.26); filter: brightness(1.03); }
+.pack:active{ transform: scale(.99); }
 
 .packInner{
   padding: 14px;
@@ -410,7 +437,6 @@ a{ color: inherit; }
   border:1px solid rgba(255,255,255,.14);
   background: rgba(174,227,251,.10);
 }
-
 .tag.pop{ background: rgba(74,170,255,.22); border-color: rgba(74,170,255,.30); }
 .tag.sale{ background: rgba(255,146,41,.22); border-color: rgba(255,146,41,.30); }
 
@@ -443,7 +469,7 @@ a{ color: inherit; }
 }
 .packPrice .cur{
   font-weight: 1000;
-  color: rgba(234,242,255,.75);
+  color: rgba(238,244,255,.76);
   font-size: 12px;
 }
 
@@ -456,11 +482,10 @@ a{ color: inherit; }
 }
 
 .tapHint{
-  color: rgba(234,242,255,.75);
+  color: rgba(238,244,255,.76);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 1000;
 }
-
 .packBtn{
   display:inline-flex;
   align-items:center;
@@ -473,29 +498,99 @@ a{ color: inherit; }
   white-space: nowrap;
 }
 
-/* small note text */
+/* Small note */
 .smallNote{
   margin-top: 10px;
   color: var(--muted);
   font-size: 12px;
-  line-height: 1.7;
+  line-height: 1.75;
+  font-weight: 900;
+}
+
+/* ---------- Games page (2 per row, horizontal images) ---------- */
+.pageTitle{
+  font-size: 22px;
+  font-weight: 1100;
+  margin: 6px 0 6px;
+}
+.pageSub{
+  margin: 0 0 18px;
+  color: var(--muted);
   font-weight: 800;
 }
 
-/* --- Responsive --- */
-@media (max-width: 720px){
+.gamesGrid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.gameCard{
+  position: relative;
+  height: 150px;
+  border-radius: 18px;
+  overflow:hidden;
+  text-decoration:none;
+  border: 1px solid rgba(174,227,251,.14);
+  background: rgba(0,0,0,.20);
+  box-shadow: 0 12px 35px rgba(0,0,0,.38);
+  transition: transform .14s ease, filter .14s ease, border-color .14s ease;
+}
+.gameCard:hover{
+  transform: translateY(-2px);
+  border-color: rgba(174,227,251,.24);
+  filter: brightness(1.03);
+}
+.gameCard:active{
+  transform: scale(.985);
+  filter: brightness(1.05);
+}
+
+.gameCard img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position:center;
+  display:block;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.gameOverlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.10));
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding: 12px;
+  color: #fff;
+}
+
+.gameOverlay h3{
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 1100;
+}
+.gameOverlay span{
+  font-size: 13px;
+  opacity: .88;
+  font-weight: 900;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 780px){
   .heroText h1{ font-size: 30px; }
-  .tileImg{ height: 170px; }
+  .tileImg{ height: 175px; }
 }
 
 @media (max-width: 520px){
   .topbar{ padding: 12px 12px; }
   .logoImg{ width: 50px; height: 50px; }
   .packGrid{ grid-template-columns: 1fr; }
-  .tileImg{ height: 160px; }
+  .gamesGrid{ grid-template-columns: 1fr; } /* mobile: one per row */
 }
 
-/* --- Reduce motion (optional) --- */
+/* Reduce motion */
 @media (prefers-reduced-motion: reduce){
-  .tiltL, .tiltR{ transform:none; }
+  .tileCard, .pack, .gameCard, .btn, .pill{ transition: none !important; }
 }
