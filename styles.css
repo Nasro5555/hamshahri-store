@@ -1,14 +1,19 @@
 :root{
   --bg0:#070814;
   --bg1:#0b0f24;
+
   --text:#eaf2ff;
   --muted:rgba(234,242,255,.72);
+
   --line:rgba(174,227,251,.16);
   --soft:rgba(174,227,251,.10);
+
   --accent:#aee3fb;
   --accent2:#78c6ff;
+
   --shadow: 0 18px 60px rgba(0,0,0,.55);
   --glow: 0 0 0 1px rgba(174,227,251,.14), 0 18px 80px rgba(120,198,255,.12);
+
   --radius: 20px;
 }
 
@@ -18,9 +23,10 @@ body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color:var(--text);
-  background: radial-gradient(1000px 500px at 20% 0%, rgba(120,198,255,.10), transparent 60%),
-              radial-gradient(900px 500px at 80% 10%, rgba(174,227,251,.10), transparent 55%),
-              linear-gradient(180deg, var(--bg0), var(--bg1));
+  background:
+    radial-gradient(1000px 520px at 18% 0%, rgba(120,198,255,.10), transparent 60%),
+    radial-gradient(900px 520px at 82% 10%, rgba(174,227,251,.10), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
 }
 
 .bg{
@@ -31,7 +37,6 @@ body{
     radial-gradient(700px 380px at 70% 25%, rgba(174,227,251,.08), transparent 62%),
     radial-gradient(540px 320px at 20% 75%, rgba(120,198,255,.08), transparent 60%);
   filter: blur(.2px);
-  opacity: 1;
 }
 
 a{ color:inherit; }
@@ -71,8 +76,7 @@ a{ color:inherit; }
 }
 .brandText{ min-width:0; }
 .brandName{
-  font-weight:900;
-  letter-spacing:.2px;
+  font-weight:1000;
   font-size:16px;
   line-height:1.2;
 }
@@ -92,9 +96,8 @@ a{ color:inherit; }
   border-radius: 16px;
   border:1px solid transparent;
   text-decoration:none;
-  font-weight:900;
+  font-weight:1000;
   white-space:nowrap;
-  cursor:pointer;
   user-select:none;
 }
 .btnPrimary{
@@ -122,104 +125,133 @@ a{ color:inherit; }
   border:1px solid rgba(174,227,251,.20);
   background: rgba(174,227,251,.08);
   color: rgba(234,242,255,.85);
-  font-weight:900;
+  font-weight:1000;
   font-size:12px;
 }
 
-.heroTitle{
-  margin:14px 0 6px;
+.heroText{ margin-top: 10px; }
+.heroText h1{
+  margin:10px 0 6px;
   font-size: 34px;
   line-height: 1.15;
   font-weight: 1000;
-  letter-spacing:.2px;
 }
-.heroSub{
+.heroText p{
   margin:0;
   color:var(--muted);
   font-size: 14px;
 }
 
-.splitGrid{
-  margin-top:16px;
-  display:grid;
+/* --- کارت‌های تصویری مثل نمونه --- */
+.tiles{
+  margin-top: 16px;
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  gap:12px;
+  gap: 14px;
 }
 
-.bigCard{
-  text-decoration:none;
-  color: var(--text);
-  border-radius: 22px;
-  padding: 16px;
-  border:1px solid rgba(174,227,251,.18);
-  background: linear-gradient(135deg, rgba(15,18,40,.78), rgba(7,8,20,.40));
-  box-shadow: 0 14px 55px rgba(0,0,0,.45);
-  position:relative;
-  overflow:hidden;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+.tile{
+  text-decoration: none;
+  color: inherit;
 }
-.bigCard:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 70px rgba(0,0,0,.55), var(--glow);
+
+.tileArt{
+  position: relative;
+  height: 240px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(174,227,251,.18);
+  box-shadow: 0 18px 70px rgba(0,0,0,.55);
+  background: rgba(255,255,255,.04);
+}
+
+.tileArt img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05) contrast(1.06);
+}
+
+/* افکت سه‌بعدی/مایل */
+.tilt{
+  transform: perspective(900px) rotateY(-10deg) rotateX(6deg);
+  transform-origin: center;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.tile:hover .tilt{
+  transform: perspective(900px) rotateY(-6deg) rotateX(3deg) translateY(-2px);
   border-color: rgba(174,227,251,.30);
+  box-shadow: 0 22px 90px rgba(0,0,0,.65);
 }
 
-.bigCard::after{
+.tileArt::after{
   content:"";
   position:absolute;
   inset:-40px;
-  background: radial-gradient(420px 240px at 85% 20%, rgba(174,227,251,.18), transparent 60%);
+  background: radial-gradient(520px 280px at 80% 20%, rgba(174,227,251,.16), transparent 60%);
   pointer-events:none;
 }
 
-/* کارت با تصویر (فقط کافی است در HTML: class="hasImage" و --bg:url('file') داشته باشد) */
-.bigCard.hasImage{
-  background:
-    linear-gradient(180deg, rgba(7,8,20,.35), rgba(7,8,20,.82)),
-    var(--bg) center / cover no-repeat;
-}
-.bigCard.hasImage .bigTitle,
-.bigCard.hasImage .bigSub,
-.bigCard.hasImage .bigGo{
-  text-shadow: 0 2px 14px rgba(0,0,0,.70);
+/* نوار پایین */
+.tileRibbon{
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  height: 56px;
+  border-radius: 18px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding: 0 14px;
+  font-weight: 1000;
+  letter-spacing: .6px;
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(6px);
 }
 
-.bigTop{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-}
-.bigIcon{
-  width:54px;
-  height:54px;
+.tileIcon{
+  width: 36px;
+  height: 36px;
   display:grid;
   place-items:center;
-  border-radius: 16px;
-  background: rgba(174,227,251,.16);
-  border:1px solid rgba(174,227,251,.22);
-  font-size:26px;
-  flex:0 0 auto;
-}
-.bigMeta{ min-width:0; }
-.bigTitle{
-  font-size:18px;
-  font-weight:1000;
-  margin-top:2px;
-}
-.bigSub{
-  margin-top:6px;
-  font-size:13px;
-  color: rgba(234,242,255,.80);
+  border-radius: 12px;
+  background: rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.16);
 }
 
-.bigGo{
-  margin-top:14px;
-  display:inline-flex;
-  padding:8px 12px;
+.tileLabel{ font-size: 14px; }
+.tileHint{
+  margin-inline-start: auto;
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.14);
+  padding: 8px 12px;
   border-radius: 14px;
-  background: rgba(174,227,251,.18);
-  border:1px solid rgba(174,227,251,.20);
-  font-weight:1000;
+  font-weight: 1000;
+}
+
+/* رنگ نوار */
+.tileRibbon.hot{
+  background: linear-gradient(90deg, rgba(255,146,41,.92), rgba(255,99,41,.70));
+}
+.tileRibbon.secure{
+  background: linear-gradient(90deg, rgba(74,170,255,.88), rgba(174,227,251,.55));
+}
+
+.tileName{
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 1000;
+  text-align: center;
+  color: rgba(234,242,255,.92);
+}
+.tileSub{
+  margin-top: 6px;
+  font-size: 13px;
+  text-align: center;
+  color: var(--muted);
 }
 
 .note{
@@ -232,7 +264,7 @@ a{ color:inherit; }
   border:1px dashed rgba(174,227,251,.22);
   background: rgba(174,227,251,.06);
   color: rgba(234,242,255,.86);
-  font-weight:700;
+  font-weight:800;
   font-size:13px;
 }
 .dot{
@@ -242,6 +274,7 @@ a{ color:inherit; }
   box-shadow: 0 0 0 6px rgba(174,227,251,.12);
 }
 
+/* بخش‌های پایین */
 .section{
   margin-top:16px;
   padding: 16px;
@@ -268,7 +301,6 @@ a{ color:inherit; }
   grid-template-columns: 1fr 1fr 1fr;
   gap:10px;
 }
-
 .miniCard{
   display:block;
   text-decoration:none;
@@ -316,7 +348,9 @@ a{ color:inherit; }
 
 /* ریسپانسیو */
 @media (max-width: 920px){
-  .splitGrid{ grid-template-columns: 1fr; }
+  .tiles{ grid-template-columns: 1fr; }
   .quickRow{ grid-template-columns: 1fr; }
-  .heroTitle{ font-size: 30px; }
+  .heroText h1{ font-size: 30px; }
+  .tilt{ transform: none; }
+  .tileArt{ height: 210px; }
 }
