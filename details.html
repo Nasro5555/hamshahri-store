@@ -46,4 +46,70 @@
       </div>
 
       <!-- For other games later -->
-      <div id
+      <div id="otherGameNote" class="smallNote" style="display:none; margin-top:14px;">
+        این فرم فعلاً برای پابجی آماده است. برای بازی‌های دیگر بعداً با یک ادیت ساده اضافه می‌کنیم.
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const game = params.get("game") || sessionStorage.getItem("order_game") || "";
+  const item = params.get("item") || sessionStorage.getItem("order_item") || "";
+  const amount = params.get("amount") || sessionStorage.getItem("order_amount") || "";
+  const method = params.get("method") || sessionStorage.getItem("order_method") || "";
+
+  const desc = document.getElementById("desc");
+  const methodText =
+    method === "atoma" ? "مومو atoma" :
+    method === "hawala" ? "ام حواله m Hawala" :
+    (method || "");
+
+  const parts = [];
+  if (amount) parts.push(amount + " افغانی");
+  if (item) parts.push("بسته " + item + " یوسی");
+  if (methodText) parts.push("روش: " + methodText);
+  desc.textContent = parts.length ? parts.join(" - ") : "—";
+
+  // رسید از sessionStorage
+  const dataUrl = sessionStorage.getItem("receipt_dataurl");
+  const preview = document.getElementById("preview");
+  const noPreview = document.getElementById("noPreview");
+
+  if (dataUrl) {
+    preview.src = dataUrl;
+  } else {
+    preview.style.display = "none";
+    noPreview.style.display = "block";
+  }
+
+  // فقط پابجی
+  const pubgForm = document.getElementById("pubgForm");
+  const otherGameNote = document.getElementById("otherGameNote");
+
+  if (game.toLowerCase() === "pubg") {
+    pubgForm.style.display = "block";
+    otherGameNote.style.display = "none";
+  } else {
+    pubgForm.style.display = "none";
+    otherGameNote.style.display = "block";
+  }
+
+  // فعلاً فقط ثبت/تست (مرحله بعدی: ارسال به تلگرام)
+  document.getElementById("sendBtn").addEventListener("click", () => {
+    const pubgName = document.getElementById("pubgName").value.trim();
+    const pubgId = document.getElementById("pubgId").value.trim();
+
+    if (!pubgName || !pubgId) {
+      alert("لطفاً نام داخل بازی و ایدی پابجی را کامل وارد کنید.");
+      return;
+    }
+    if (!dataUrl) {
+      alert("رسید موجود نیست. لطفاً برگردید و دوباره رسید را انتخاب کنید.");
+      return;
+    }
+
+    // ذخیره برای مرحله بعد (وقتی ارسال به تلگرام را فعال کنیم)
+    sessionStorage.setItem("final_pubg_name", pubgName);
+   
