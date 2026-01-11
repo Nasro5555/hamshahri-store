@@ -1,344 +1,146 @@
-/* =========================================================
-   Hamshahri Store — Pro Gaming UI (RTL)
-   Single-file stylesheet for:
-   - index.html (main tiles)
-   - games.html (2 cards per row)
-   - pubg.html (price packs like Midasbuy, no cart)
-   ========================================================= */
+/* ================================
+   Hamshahri Store - Full Stylesheet (RTL / Gaming / Glass)
+   ================================ */
 
-/* ---------- Variables ---------- */
 :root{
-  --bg0:#060813;
-  --bg1:#0a1024;
+  --bg1: #070a14;
+  --bg2: #0b1022;
 
-  --text:#eef4ff;
-  --muted:rgba(238,244,255,.72);
+  --panel: rgba(255,255,255,.06);
+  --panel2: rgba(255,255,255,.035);
+  --line: rgba(174,227,251,.16);
 
-  --line:rgba(174,227,251,.16);
-  --glass:rgba(255,255,255,.06);
-  --glass2:rgba(255,255,255,.035);
+  --text: rgba(245,248,255,.96);
+  --muted: rgba(234,242,255,.70);
 
-  --blue:rgba(74,170,255,.95);
-  --cyan:rgba(174,227,251,.95);
-  --orange:rgba(255,146,41,.95);
-
-  --radius:26px;
-  --radius2:20px;
-
-  --shadow: 0 18px 60px rgba(0,0,0,.58);
-  --shadow2: 0 14px 45px rgba(0,0,0,.45);
+  --shadow: 0 18px 60px rgba(0,0,0,.55);
+  --radius: 26px;
 }
 
-/* ---------- Reset / Base ---------- */
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 body{
   margin:0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  color:var(--text);
-
-  /* RTL Persian */
-  direction: rtl;
-  text-align: right;
-
+  color: var(--text);
   background:
-    radial-gradient(1100px 520px at 18% 6%, rgba(74,170,255,.18), transparent 58%),
-    radial-gradient(900px 520px at 82% 14%, rgba(174,227,251,.12), transparent 60%),
-    radial-gradient(820px 420px at 40% 92%, rgba(120,90,255,.10), transparent 62%),
-    linear-gradient(180deg, var(--bg0), var(--bg1));
+    radial-gradient(1200px 600px at 20% 10%, rgba(90,140,255,.18), transparent 55%),
+    radial-gradient(900px 500px at 85% 20%, rgba(80,255,220,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
   overflow-x:hidden;
 }
 
-/* Soft glow layer */
 .bg{
   position:fixed;
   inset:0;
   pointer-events:none;
   background:
-    radial-gradient(760px 380px at 28% 26%, rgba(174,227,251,.09), transparent 62%),
-    radial-gradient(720px 360px at 72% 68%, rgba(74,170,255,.09), transparent 60%);
+    radial-gradient(900px 420px at 30% 25%, rgba(174,227,251,.10), transparent 55%),
+    radial-gradient(700px 360px at 70% 65%, rgba(120,90,255,.10), transparent 60%);
   opacity:.95;
 }
 
-/* Links */
 a{ color:inherit; }
-.link{ text-decoration:none; }
-.muted{ color:var(--muted); }
 
-/* ---------- Layout ---------- */
 .container{
-  width:min(1020px, calc(100% - 26px));
-  margin: 0 auto;
+  width: min(980px, calc(100% - 28px));
+  margin:0 auto;
   padding: 18px 0 34px;
 }
 
-/* ---------- Topbar ---------- */
+/* ===== Topbar ===== */
 .topbar{
-  width:min(1020px, calc(100% - 26px));
+  width: min(980px, calc(100% - 28px));
   margin: 16px auto 0;
   padding: 14px 16px;
-
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap: 12px;
-
-  border-radius: var(--radius);
-  border:1px solid var(--line);
-
-  background: linear-gradient(135deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
+  gap: 14px;
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap: 12px;
-  min-width: 0;
+  min-width:0;
 }
-
 .logoImg{
-  width: 54px;
-  height: 54px;
-  border-radius: 18px;
-  object-fit: contain;
+  width:54px;
+  height:54px;
+  border-radius:18px;
   background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.14);
-  padding: 6px;
+  border:1px solid rgba(255,255,255,.14);
+  object-fit:contain;
+  padding:6px;
 }
-
 .brandText{ min-width:0; }
-.brandName{
-  font-weight: 1000;
-  font-size: 18px;
-  line-height: 1.1;
-}
+.brandName{ font-weight:1000; font-size:18px; line-height:1.1; }
 .brandTag{
-  margin-top: 6px;
-  font-size: 12.5px;
-  font-weight: 800;
+  margin-top:6px;
   color: var(--muted);
-  white-space: nowrap;
+  font-size:12.5px;
+  font-weight:800;
+  white-space:nowrap;
   overflow:hidden;
-  text-overflow: ellipsis;
+  text-overflow:ellipsis;
 }
-
 .actions{
   display:flex;
   align-items:center;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap:10px;
+  flex-wrap:wrap;
   justify-content:flex-end;
 }
 
-/* Buttons */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   padding: 10px 14px;
   border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.06);
   text-decoration:none;
-  font-weight: 1000;
-  font-size: 13px;
-  backdrop-filter: blur(10px);
-  transition: transform .12s ease, filter .12s ease, border-color .12s ease;
+  font-weight:1000;
+  font-size:13px;
+  backdrop-filter: blur(8px);
 }
-.btn:hover{ border-color: rgba(174,227,251,.22); }
-.btn:active{ transform: translateY(1px) scale(.99); filter: brightness(1.06); }
-
 .btnPrimary{
-  border-color: rgba(174,227,251,.26);
+  border-color: rgba(174,227,251,.24);
   background: rgba(174,227,251,.14);
 }
 
-/* ---------- Main hero card ---------- */
+/* ===== Cards / Hero ===== */
 .hero{
   padding: 18px 16px 22px;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
   box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
 }
 
 .chip{
   display:inline-flex;
   align-items:center;
-  gap: 8px;
+  gap:8px;
   padding: 8px 12px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.06);
-  color: rgba(238,244,255,.86);
-  font-weight: 1000;
-  font-size: 13px;
+  color: rgba(234,242,255,.85);
+  font-weight:900;
+  font-size:13px;
 }
 
-.heroText{ margin-top: 10px; }
-.heroText h1{
-  margin: 10px 0 0;
-  font-size: 36px;
-  font-weight: 1100;
-  letter-spacing: .2px;
-}
-.heroText p{
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-weight: 800;
-}
+.heroText{ margin-top:10px; }
+.heroText h1{ margin:10px 0 0; font-size:34px; font-weight:1100; }
+.heroText p{ margin:8px 0 0; color:var(--muted); font-weight:800; }
 
-/* ---------- Index tiles (Games/VPN) ---------- */
-.tileGrid{
-  margin-top: 18px;
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-.tile{
-  display:block;
-  text-decoration:none;
-}
-
-.tileCard{
-  position: relative;
-  border-radius: 26px;
-  overflow:hidden;
-  border: 1px solid rgba(174,227,251,.16);
-  background: rgba(0,0,0,.18);
-  box-shadow: var(--shadow2);
-  transition: transform .15s ease, border-color .15s ease, filter .15s ease;
-}
-
-.tile:hover .tileCard{
-  transform: translateY(-2px);
-  border-color: rgba(174,227,251,.26);
-  filter: brightness(1.03);
-}
-
-.tileImg{
-  width: 100%;
-  height: 185px;
-  object-fit: cover;
-  object-position:center;
-  display:block;
-  filter: saturate(1.06) contrast(1.06);
-}
-
-/* glass bar */
-.tileCard::after{
-  content:"";
-  position:absolute;
-  inset:auto 14px 14px 14px;
-  height: 52px;
-  border-radius: 18px;
-  background: linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,.10));
-  border: 1px solid rgba(255,255,255,.18);
-  backdrop-filter: blur(10px);
-}
-
-/* Badge */
-.badge{
-  position:absolute;
-  top: 12px;
-  right: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 1000;
-  border: 1px solid rgba(255,255,255,.16);
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(10px);
-}
-.badge.hot{
-  background: rgba(255,146,41,.22);
-  border-color: rgba(255,146,41,.30);
-}
-.badge.secure{
-  background: rgba(74,170,255,.22);
-  border-color: rgba(74,170,255,.30);
-}
-
-.tileTitle{
-  margin-top: 10px;
-  font-size: 22px;
-  font-weight: 1100;
-}
-.tileCaption{
-  margin-top: 6px;
-  color: var(--muted);
-  font-weight: 800;
-}
-
-/* Note line */
-.note{
-  margin-top: 14px;
-  padding: 12px 14px;
-  border-radius: 999px;
-  border: 1px dashed rgba(174,227,251,.20);
-  background: rgba(174,227,251,.06);
-  color: rgba(238,244,255,.84);
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  font-weight: 1000;
-}
-.dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: rgba(174,227,251,.85);
-  box-shadow: 0 0 18px rgba(174,227,251,.55);
-}
-
-/* CTA pill */
-.ctaRow{ margin-top: 14px; }
-.pill{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 12px 14px;
-  border-radius: 18px;
-  border: 1px solid rgba(174,227,251,.22);
-  background: rgba(174,227,251,.12);
-  text-decoration:none;
-  font-weight: 1100;
-  transition: transform .12s ease, filter .12s ease, border-color .12s ease;
-}
-.pill:active{ transform: translateY(1px); filter: brightness(1.06); }
-
-/* ---------- Footer ---------- */
-.footer{
-  width: min(1020px, calc(100% - 26px));
-  margin: 16px auto 26px;
-}
-.footerInner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 14px;
-  padding: 12px 14px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  backdrop-filter: blur(10px);
-}
-.footerLinks{
-  display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.footerLinks a{
-  text-decoration:none;
-  font-weight: 900;
-  font-size: 13px;
-}
-
-/* ---------- Page head + content card ---------- */
 .pageHead{
   display:flex;
   align-items:flex-end;
@@ -347,17 +149,8 @@ a{ color:inherit; }
   margin-top: 4px;
   margin-bottom: 14px;
 }
-.pageHead h1{
-  margin: 0;
-  font-size: 22px;
-  font-weight: 1100;
-}
-.pageHead p{
-  margin: 6px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 800;
-}
+.pageHead h1{ margin:0; font-size:22px; font-weight:1100; }
+.pageHead p{ margin:6px 0 0; color:var(--muted); font-size:13px; font-weight:800; }
 
 .backLink{
   text-decoration:none;
@@ -365,589 +158,93 @@ a{ color:inherit; }
   border-radius: 16px;
   border:1px solid rgba(174,227,251,.18);
   background: rgba(174,227,251,.06);
-  font-weight: 1000;
-  font-size: 13px;
-  transition: transform .12s ease, filter .12s ease;
-}
-.backLink:active{ transform: translateY(1px); filter: brightness(1.06); }
-
-.cardBox{
-  padding: 16px;
-  border-radius: var(--radius);
-  border:1px solid var(--line);
-  background: linear-gradient(135deg, rgba(15,18,40,.55), rgba(7,8,20,.35));
-  box-shadow: 0 12px 45px rgba(0,0,0,.35);
+  font-weight:1000;
+  font-size:13px;
 }
 
-.heroImg{
-  width:100%;
-  height: 210px;
-  object-fit: cover;
-  object-position:center;
-  border-radius: 22px;
-  border:1px solid rgba(174,227,251,.16);
-}
-
-/* ---------- Price packs (Midasbuy style, No cart) ---------- */
-.packGrid{
+.note{
   margin-top: 14px;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.pack{
-  position: relative;
-  border-radius: 22px;
-  overflow: hidden;
-  border:1px solid rgba(174,227,251,.16);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  box-shadow: var(--shadow2);
-  text-decoration:none;
-  color: inherit;
-  min-height: 168px;
-  transition: transform .14s ease, filter .14s ease, border-color .14s ease;
-}
-.pack:hover{ border-color: rgba(174,227,251,.26); filter: brightness(1.03); }
-.pack:active{ transform: scale(.99); }
-
-.packInner{
-  padding: 14px;
-  display:flex;
-  flex-direction:column;
-  gap: 10px;
-  height: 100%;
-}
-
-.packTop{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.tag{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 6px 10px;
+  padding: 12px 14px;
   border-radius: 999px;
-  font-weight: 1100;
-  font-size: 12px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(174,227,251,.10);
-}
-.tag.pop{ background: rgba(74,170,255,.22); border-color: rgba(74,170,255,.30); }
-.tag.sale{ background: rgba(255,146,41,.22); border-color: rgba(255,146,41,.30); }
-
-.packIcon{
-  width: 46px;
-  height: 46px;
-  border-radius: 16px;
-  background: rgba(0,0,0,.20);
-  border:1px solid rgba(255,255,255,.12);
-  display:grid;
-  place-items:center;
-  font-size: 22px;
-}
-
-.packTitle{
-  font-weight: 1100;
-  font-size: 18px;
-  letter-spacing: .2px;
-}
-
-.packPrice{
-  margin-top: -4px;
-  display:flex;
-  align-items:baseline;
-  gap: 8px;
-}
-.packPrice .af{
-  font-weight: 1100;
-  font-size: 18px;
-}
-.packPrice .cur{
-  font-weight: 1000;
-  color: rgba(238,244,255,.76);
-  font-size: 12px;
-}
-
-.packFoot{
-  margin-top:auto;
+  border: 1px dashed rgba(174,227,251,.20);
+  background: rgba(174,227,251,.06);
+  color: rgba(234,242,255,.82);
   display:flex;
   align-items:center;
-  justify-content:space-between;
   gap:10px;
+  font-weight:900;
 }
-
-.tapHint{
-  color: rgba(238,244,255,.76);
-  font-size: 12px;
-  font-weight: 1000;
+.dot{
+  width:10px;height:10px;border-radius:999px;
+  background: rgba(174,227,251,.85);
+  box-shadow: 0 0 18px rgba(174,227,251,.65);
 }
-.packBtn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 10px 12px;
-  border-radius: 16px;
-  font-weight: 1100;
-  border:1px solid rgba(174,227,251,.22);
-  background: rgba(174,227,251,.16);
-  white-space: nowrap;
-}
-
-/* Small note */
 .smallNote{
   margin-top: 10px;
   color: var(--muted);
   font-size: 12px;
-  line-height: 1.75;
-  font-weight: 900;
-}
-
-/* ---------- Games page (2 per row, horizontal images) ---------- */
-.pageTitle{
-  font-size: 22px;
-  font-weight: 1100;
-  margin: 6px 0 6px;
-}
-.pageSub{
-  margin: 0 0 18px;
-  color: var(--muted);
+  line-height: 1.7;
   font-weight: 800;
 }
 
-.gamesGrid{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+/* ===== Footer ===== */
+.footer{
+  width: min(980px, calc(100% - 28px));
+  margin: 16px auto 26px;
 }
-
-.gameCard{
-  position: relative;
-  height: 150px;
-  border-radius: 18px;
-  overflow:hidden;
-  text-decoration:none;
-  border: 1px solid rgba(174,227,251,.14);
-  background: rgba(0,0,0,.20);
-  box-shadow: 0 12px 35px rgba(0,0,0,.38);
-  transition: transform .14s ease, filter .14s ease, border-color .14s ease;
-}
-.gameCard:hover{
-  transform: translateY(-2px);
-  border-color: rgba(174,227,251,.24);
-  filter: brightness(1.03);
-}
-.gameCard:active{
-  transform: scale(.985);
-  filter: brightness(1.05);
-}
-
-.gameCard img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  object-position:center;
-  display:block;
-  filter: saturate(1.05) contrast(1.05);
-}
-
-.gameOverlay{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.10));
+.footerInner{
   display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding: 12px;
-  color: #fff;
-}
-
-.gameOverlay h3{
-  margin: 0 0 4px 0;
-  font-size: 16px;
-  font-weight: 1100;
-}
-.gameOverlay span{
-  font-size: 13px;
-  opacity: .88;
-  font-weight: 900;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 780px){
-  .heroText h1{ font-size: 30px; }
-  .tileImg{ height: 175px; }
-}
-
-@media (max-width: 520px){
-  .topbar{ padding: 12px 12px; }
-  .logoImg{ width: 50px; height: 50px; }
-  .packGrid{ grid-template-columns: 1fr; }
-  .gamesGrid{ grid-template-columns: 1fr; } /* mobile: one per row */
-}
-
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce){
-  .tileCard, .pack, .gameCard, .btn, .pill{ transition: none !important; }
-}
-/* ============================= */
-/* صفحه پرداخت (دو کارت افقی) */
-/* ============================= */
-
-.payGridTwo{
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;   /* همیشه دو تا کنار هم */
-  gap: 14px;
-}
-
-.payCardTwo{
-  position: relative;
-  height: 190px;
-  border-radius: 18px;
-  overflow: hidden;
-  text-decoration: none;
-  border: 1px solid rgba(174,227,251,.14);
-  background: rgba(0,0,0,.20);
-  box-shadow: 0 12px 35px rgba(0,0,0,.38);
-  transition: transform .14s ease, filter .14s ease, border-color .14s ease;
-}
-
-.payCardTwo:hover{
-  transform: translateY(-2px);
-  border-color: rgba(174,227,251,.24);
-  filter: brightness(1.03);
-}
-
-.payCardTwo:active{
-  transform: scale(.985);
-  filter: brightness(1.05);
-}
-
-.payCardTwo img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  filter: saturate(1.05) contrast(1.05);
-}
-
-.payOverlayTwo{
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.12));
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 12px;
-  color: #fff;
-}
-
-.payOverlayTwo h3{
-  margin: 0 0 4px 0;
-  font-size: 18px;
-  font-weight: 1100;
-}
-
-.payOverlayTwo span{
-  font-size: 13px;
-  opacity: .88;
-  font-weight: 900;
-}
-.payGrid{
-  margin-top: 16px;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.payCard{
-  position: relative;
-  height: 180px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(174,227,251,.16);
-  box-shadow: 0 14px 45px rgba(0,0,0,.35);
-  text-decoration: none;
-}
-.payCard img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
-.payOverlay{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.10));
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding: 14px;
-}
-.payOverlay h3{
-  margin:0 0 6px 0;
-  font-size: 18px;
-  font-weight: 1100;
-}
-.payOverlay span{
-  color: rgba(255,255,255,.85);
-  font-weight: 800;
-  font-size: 13px;
-}
-
-.payInfo{
-  margin: 10px 0 16px;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
   padding: 12px 14px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.05);
-  font-weight: 900;
-  line-height: 1.9;
-}
-
-.payForm{
-  display:grid;
-  gap: 10px;
-}
-.payForm label{
-  font-weight: 1000;
-  font-size: 13px;
-  color: rgba(245,248,255,.92);
-}
-.payForm input{
-  width: 100%;
-  padding: 12px 12px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  color: rgba(245,248,255,.96);
-  outline: none;
-}
-
-@media (max-width: 520px){
-  .payGrid{ grid-template-columns: 1fr; }
-  .payCard{ height: 170px; }
-}
-/* ===== details.html styles ===== */
-.receiptPreviewBox{
-  margin-top:14px;
-  padding:14px;
   border-radius: var(--radius);
-  border: 1px solid rgba(174,227,251,.16);
-  background: rgba(255,255,255,.04);
-}
-.receiptTitle{
-  font-weight: 1000;
-  margin-bottom:10px;
-}
-.receiptPreview{
-  width:100%;
-  max-height:420px;
-  object-fit:contain;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.20);
-}
-.formBox{
-  margin-top:14px;
-  padding:16px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(174,227,251,.16);
+  border:1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.03);
 }
-.formTitle{
-  font-weight: 1100;
-  margin-bottom:12px;
-}
-.fieldLabel{
-  display:block;
-  margin: 10px 0 8px;
-  font-weight: 900;
-  color: rgba(234,242,255,.85);
-}
-.fieldInput{
-  width:100%;
-  padding: 14px 14px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(0,0,0,.18);
-  color: var(--text);
-  outline:none;
-}
-.fieldInput::placeholder{ color: rgba(234,242,255,.45); font-weight: 800; }
-.btnPrimaryWide{
-  width:100%;
-  margin-top:14px;
-  padding: 14px 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(174,227,251,.24);
-  background: rgba(174,227,251,.16);
-  color: var(--text);
-  font-weight: 1100;
-  font-size: 15px;
-}
+.footerLinks{ display:flex; gap:12px; flex-wrap:wrap; }
+.footerLinks a{ text-decoration:none; font-weight:900; font-size:13px; }
+
 /* =============================
-   Games Grid (Midasbuy-style)
-   2 per row, small square cards
+   Home (2 square cards)
    ============================= */
-
-.gamesGrid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
+.homeGrid{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
 }
-
-.gameCard{
+.homeCard{
   position: relative;
-  display: block;
+  display:block;
+  text-decoration:none;
   border-radius: 18px;
-  overflow: hidden;
-  text-decoration: none;
+  overflow:hidden;
   border: 1px solid rgba(174,227,251,.16);
   background: rgba(255,255,255,.05);
   box-shadow: 0 14px 45px rgba(0,0,0,.35);
-  transform: translateZ(0);
 }
-
-/* مربع واقعی */
-.gameCard .thumb{
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  display: block;
-  background: rgba(0,0,0,.25);
-}
-
-/* عکس داخل مربع */
-.gameCard .thumb img{
-  width: 100%;
-  height: 100%;
+.homeCard img{
+  width:100%;
+  aspect-ratio: 1/1;
   object-fit: cover;
   display:block;
   filter: saturate(1.05) contrast(1.05);
 }
-
-/* گرادیانت روی عکس برای خوانا شدن متن */
-.gameCard .overlay{
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.10));
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 12px;
-  gap: 6px;
-}
-
-/* عنوان */
-.gameCard .title{
-  margin: 0;
-  font-size: 15px;
-  font-weight: 1000;
-  color: rgba(245,248,255,.98);
-}
-
-/* زیرنویس */
-.gameCard .sub{
-  margin: 0;
-  font-size: 12px;
-  font-weight: 900;
-  color: rgba(234,242,255,.78);
-}
-
-/* برچسب کوچک بالا */
-.gameCard .tag{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 1000;
-  border: 1px solid rgba(255,255,255,.16);
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(10px);
-}
-
-/* افکت لمس */
-.gameCard:active{
-  transform: scale(0.985);
-  filter: brightness(1.05);
-}
-
-/* موبایل خیلی کوچک: باز هم 2تایی بماند (مثل میداس) */
-@media (max-width: 360px){
-  .gamesGrid{ gap: 10px; }
-  .gameCard{ border-radius: 16px; }
-}
-/* ============================= */
-/* صفحه اصلی: کارت‌های چهارگوش (Games / VPN) */
-/* ============================= */
-
-.homeGrid{
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-.homeCard{
-  position: relative;
-  height: 170px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #000;
-  border: 1px solid rgba(174,227,251,.16);
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
-  text-decoration: none;
-  color: #fff;
-}
-
-.homeCard img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: saturate(1.05) contrast(1.05);
-}
-
 .homeOverlay{
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.10));
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.12));
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
   padding: 12px;
 }
-
-.homeTitleRow{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.homeTitle{
-  font-size: 18px;
-  font-weight: 1000;
-  margin: 0;
-}
-
-.homeSub{
-  margin-top: 6px;
-  font-size: 13px;
-  opacity: .85;
-  font-weight: 800;
-}
-
+.homeTitleRow{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.homeTitle{ margin:0; font-size:18px; font-weight:1100; }
+.homeSub{ margin-top:6px; font-size:13px; opacity:.88; font-weight:800; }
 .homeBadge{
-  padding: 6px 10px;
+  padding:6px 10px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 1000;
@@ -955,25 +252,19 @@ a{ color:inherit; }
   background: rgba(255,255,255,.10);
   backdrop-filter: blur(10px);
 }
+.homeCard:active{ transform: scale(.985); filter: brightness(1.05); }
 
-.homeCard:active{
-  transform: scale(.985);
-  filter: brightness(1.05);
-}
-
-/* موبایل خیلی کوچک: تک ستونه شود */
-@media (max-width: 420px){
-  .homeGrid{ grid-template-columns: 1fr; }
-}
-/* ===== UC Packs (Midasbuy-style squares) ===== */
-.uc-grid{
+/* =============================
+   Games (4 square cards)
+   ============================= */
+.gamesGrid{
   margin-top: 14px;
   display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0,1fr));
   gap: 12px;
 }
-
-.uc-pack{
+.gameCard{
+  position: relative;
   display:block;
   text-decoration:none;
   border-radius: 18px;
@@ -982,36 +273,190 @@ a{ color:inherit; }
   background: rgba(255,255,255,.05);
   box-shadow: 0 14px 45px rgba(0,0,0,.35);
 }
-
-.uc-pack img{
+.gameCard img{
   width:100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
   object-fit: cover;
   display:block;
-  background: rgba(0,0,0,.25);
+  filter: saturate(1.05) contrast(1.05);
 }
+.gameOverlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.10));
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding: 12px;
+  gap:6px;
+}
+.gameOverlay h3{ margin:0; font-size:15px; font-weight:1100; }
+.gameOverlay span{ font-size:12px; font-weight:900; color: rgba(174,227,251,.90); }
+.gameCard:active{ transform: scale(.985); filter: brightness(1.05); }
 
-.uc-info{
+/* =============================
+   UC Packs (square image + fixed white bg problem)
+   ============================= */
+.ucGrid{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+}
+.ucPack{
+  display:block;
+  text-decoration:none;
+  border-radius: 18px;
+  overflow:hidden;
+  border: 1px solid rgba(174,227,251,.16);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 14px 45px rgba(0,0,0,.35);
+}
+.ucImgBox{
+  background:
+    radial-gradient(420px 180px at 50% 20%, rgba(174,227,251,.12), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px;
+}
+.ucImgBox img{
+  width:100%;
+  max-height: 170px;
+  object-fit: contain;
+  display:block;
+  filter: drop-shadow(0 16px 30px rgba(0,0,0,.5));
+}
+.ucInfo{
   padding: 10px 10px 12px;
   text-align:center;
 }
-
-.uc-info h3{
+.ucInfo h3{
   margin:0;
   font-size: 15px;
   font-weight: 1100;
-  color: rgba(245,248,255,.98);
 }
-
-.uc-info span{
+.ucInfo .price{
   display:block;
   margin-top: 6px;
   font-size: 13px;
   font-weight: 1000;
   color: rgba(174,227,251,.90);
 }
+.ucPack:active{ transform: scale(.985); filter: brightness(1.05); }
 
-.uc-pack:active{
-  transform: scale(.985);
-  filter: brightness(1.05);
+/* =============================
+   Payment chooser (Atoma / Hawala squares)
+   ============================= */
+.payGrid{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+}
+.payCard{
+  position:relative;
+  display:block;
+  text-decoration:none;
+  border-radius: 18px;
+  overflow:hidden;
+  border: 1px solid rgba(174,227,251,.16);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 14px 45px rgba(0,0,0,.35);
+}
+.payCard img{
+  width:100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display:block;
+  filter: saturate(1.05) contrast(1.05);
+}
+.payOverlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,.74), rgba(0,0,0,.12));
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:12px;
+}
+.payOverlay .t{ font-size:15px; font-weight:1100; }
+.payOverlay .s{ margin-top:6px; font-size:12px; font-weight:900; color: rgba(174,227,251,.90); }
+.payCard:active{ transform: scale(.985); filter: brightness(1.05); }
+
+/* =============================
+   Payment method + details forms
+   ============================= */
+.payInfoCard{
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 22px;
+  border:1px solid rgba(174,227,251,.16);
+  background: rgba(255,255,255,.04);
+  text-align:center;
+}
+.payBigNumber{
+  font-size: 28px;
+  font-weight: 1100;
+  letter-spacing: 1px;
+}
+.payName{ margin-top: 8px; font-weight:1000; opacity:.92; }
+
+.fileBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  font-weight: 1100;
+  cursor: pointer;
+}
+.fileBtn input{ display:none; }
+
+.btnPrimaryWide{
+  width:100%;
+  margin-top: 14px;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(174,227,251,.24);
+  background: rgba(174,227,251,.16);
+  color: var(--text);
+  font-weight: 1100;
+  font-size: 15px;
+}
+
+.receiptPreview{
+  width:100%;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.20);
+}
+
+.fieldLabel{
+  display:block;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-weight: 1000;
+  opacity: .95;
+}
+.fieldInput{
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  outline: none;
+  font-weight: 900;
+}
+.fieldInput::placeholder{ color: rgba(234,242,255,.55); font-weight:800; }
+
+/* ===== Responsive ===== */
+@media (max-width: 420px){
+  .homeGrid, .gamesGrid, .ucGrid, .payGrid{ grid-template-columns: 1fr; }
 }
