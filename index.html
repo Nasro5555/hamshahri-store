@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>همشهری استور</title>
-  <meta name="description" content="همشهری استور | فروش آنلاین گیم و وی‌پی‌ان | سفارش سریع در واتساپ" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=1" />
 </head>
 
 <body>
   <div class="bg"></div>
 
+  <!-- Topbar -->
   <header class="topbar">
     <div class="brand">
-      <img class="logoImg" src="logo.jpg" alt="همشهری استور" />
+      <img class="logoImg" src="logo.jpg" alt="لوگو">
       <div class="brandText">
         <div class="brandName">همشهری استور</div>
         <div class="brandTag">۷ سال اعتماد سازی</div>
@@ -21,48 +21,58 @@
     </div>
 
     <div class="actions">
-      <a class="btn btnPrimary" href="https://wa.me/93783019744" target="_blank" rel="noreferrer">
-        واتساپ
-      </a>
+      <!-- این لینک را بعداً اگر خواستی عوض کن -->
+      <a class="btn btnPrimary" href="https://wa.me/" target="_blank" rel="noopener">واتساپ</a>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <div class="chip">گیمینگ • وی‌پی‌ان • شارژ</div>
+      <span class="chip">گیمینگ • وی‌پی‌ان • شارژ</span>
 
       <div class="heroText">
         <h1>به همشهری استور خوش آمدید</h1>
         <p>لطفاً یک گزینه را انتخاب کنید</p>
       </div>
 
-      <div class="tileGrid">
-        <a class="tile" href="games.html" aria-label="بازی‌ها">
-          <div class="tileCard tiltL">
-            <img class="tileImg" src="games.jpg" alt="بازی‌ها" />
-            <span class="badge hot">داغ</span>
+      <!-- ✅ کارت‌های چهارگوش (۲ تا در یک خط) -->
+      <div class="homeGrid">
+
+        <!-- Games -->
+        <a class="homeCard" href="games.html">
+          <img src="games.jpg" alt="بازی‌ها">
+          <div class="homeOverlay">
+            <div class="homeTitleRow">
+              <h3 class="homeTitle">بازی‌ها</h3>
+              <span class="homeBadge badgeHot">داغ</span>
+            </div>
+            <div class="homeSub">پابجی • کلش • کالاف • موبایل لجند</div>
+            <div class="homeBtnRow">
+              <span class="homeBtn">ورود →</span>
+            </div>
           </div>
-          <div class="tileTitle">بازی‌ها</div>
-          <div class="tileCaption">پابجی • کلش • کالاف • موبایل لجندز</div>
         </a>
 
-        <a class="tile" href="vpn.html" aria-label="وی‌پی‌ان">
-          <div class="tileCard tiltR">
-            <img class="tileImg" src="vpn.jpg" alt="وی‌پی‌ان" />
-            <span class="badge secure">امن</span>
+        <!-- VPN -->
+        <a class="homeCard" href="vpn.html">
+          <img src="vpn.jpg" alt="وی‌پی‌ان">
+          <div class="homeOverlay">
+            <div class="homeTitleRow">
+              <h3 class="homeTitle">وی‌پی‌ان</h3>
+              <span class="homeBadge badgeSafe">امن</span>
+            </div>
+            <div class="homeSub">اکسپرس • نورد</div>
+            <div class="homeBtnRow">
+              <span class="homeBtn">ورود →</span>
+            </div>
           </div>
-          <div class="tileTitle">وی‌پی‌ان</div>
-          <div class="tileCaption">اکسپرس • نورد</div>
         </a>
+
       </div>
 
       <div class="note">
         <span class="dot"></span>
         برای سفارش سریع، روی واتساپ بزنید.
-      </div>
-
-      <div class="ctaRow">
-        <a class="pill" href="pubg.html">ورود مستقیم به فروش یوسی پابجی →</a>
       </div>
     </section>
   </main>
@@ -71,9 +81,8 @@
     <div class="footerInner">
       <div class="muted">© همشهری استور</div>
       <div class="footerLinks">
-        <a class="muted link" href="vpn.html">وی‌پی‌ان</a>
-        <a class="muted link" href="games.html">بازی‌ها</a>
-        <a class="muted link" href="pubg.html">یوسی پابجی</a>
+        <a href="games.html">Games</a>
+        <a href="vpn.html">VPN</a>
       </div>
     </div>
   </footer>
