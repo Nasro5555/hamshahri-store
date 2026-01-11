@@ -460,3 +460,74 @@ a{ color:inherit; }
 @media (max-width: 420px){
   .homeGrid, .gamesGrid, .ucGrid, .payGrid{ grid-template-columns: 1fr; }
 }
+/* ===== PUBG FIX: Banner big, pack images small ===== */
+
+/* فقط بنر بالای صفحه */
+.pubgHeroImg{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 1px solid rgba(174,227,251,.16);
+  display: block;
+}
+
+/* گرید پک‌ها (مثل midasbuy) */
+.ucGrid{
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* کارت پک */
+.ucCard{
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(174,227,251,.16);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  box-shadow: 0 14px 45px rgba(0,0,0,.45);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* قسمت عکس (چهارگوش/کوچک) */
+.ucMedia{
+  height: 130px;           /* اندازه کوچک */
+  background: rgba(10,15,30,.55);  /* بک‌گراند هماهنگ با سایت */
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid rgba(174,227,251,.12);
+}
+
+/* خودِ عکس پک */
+.ucMedia img{
+  width: 92%;
+  height: 92%;
+  object-fit: contain;     /* سفیدِ دور عکس کمتر اذیت می‌کند */
+  display: block;
+}
+
+/* متن زیر کارت */
+.ucInfo{
+  padding: 12px 12px 14px;
+  text-align: right;
+}
+
+.ucTitle{
+  margin: 0;
+  font-weight: 1100;
+  font-size: 16px;
+}
+
+.ucPrice{
+  margin: 6px 0 0;
+  color: rgba(234,242,255,.86);
+  font-weight: 1000;
+}
+
+/* موبایل خیلی کوچک */
+@media (max-width: 520px){
+  .ucGrid{ grid-template-columns: 1fr; }
+  .pubgHeroImg{ height: 200px; }
+}
