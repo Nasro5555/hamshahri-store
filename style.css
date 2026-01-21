@@ -1,486 +1,373 @@
-/* =========================
-   Hamshahri Store - Clean Responsive CSS
-   Replace your whole CSS with this file
-   ========================= */
-
-/* --- Reset / Base --- */
-*,
-*::before,
-*::after { box-sizing: border-box; }
-
-html, body { height: 100%; }
-
-body{
-  margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans Arabic", "Vazirmatn", sans-serif;
-  direction: rtl;
-  color: rgba(255,255,255,.92);
-  background: radial-gradient(1200px 700px at 20% 10%, rgba(120,170,255,.18), transparent 55%),
-              radial-gradient(900px 600px at 80% 20%, rgba(170,120,255,.16), transparent 60%),
-              linear-gradient(180deg, #07101d 0%, #060b14 100%);
-  overflow-x: hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-img, video, svg{
-  max-width: 100%;
-  height: auto;           /* مهم: جلو کشیده شدن عکس را می‌گیرد */
-  display: block;
+body {
+    font-family: 'Vazir', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
 }
 
-a{ color: inherit; text-decoration: none; }
-button, input, textarea, select{ font: inherit; }
-
-:root{
-  --bg: #060b14;
-  --panel: rgba(255,255,255,.06);
-  --panel2: rgba(255,255,255,.08);
-  --border: rgba(255,255,255,.10);
-  --shadow: 0 12px 30px rgba(0,0,0,.35);
-  --blur: blur(14px);
-  --r: 18px;
-  --r2: 26px;
-
-  --p: 16px;
-  --p2: 22px;
-
-  --accent: rgba(120,170,255,.85);
-  --accent2: rgba(170,120,255,.75);
-
-  --max: 1100px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* --- Helpers --- */
-.container{
-  width: min(var(--max), calc(100% - 24px));
-  margin-inline: auto;
-}
-
-.section{ padding: 18px 0; }
-
-.card{
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: var(--r2);
-  box-shadow: var(--shadow);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-  overflow: hidden; /* مهم: عکس از کارت بیرون نزند */
-}
-
-.card-inner{ padding: var(--p2); }
-
-hr.soft{
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
-  margin: 12px 0;
-}
-
-/* =========================
-   Header / Navbar
-   ========================= */
-.site-header{
-  position: sticky; /* به جای fixed که مشکل فاصله ایجاد می‌کند */
-  top: 0;
-  z-index: 50;
-  padding: 14px 0;
-  background: linear-gradient(180deg, rgba(6,11,20,.85), rgba(6,11,20,.25));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-
-.navbar{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.brand{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-
-.brand-logo{
-  width: 46px;
-  height: 46px;
-  flex: 0 0 auto;
-  border-radius: 12px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.10);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-
-.brand-logo img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* لوگو درست جا می‌شود */
-}
-
-.brand-title{
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-  min-width: 0;
-}
-
-.brand-title strong{
-  font-size: 18px;
-  letter-spacing: .2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.brand-title span{
-  opacity: .75;
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.nav-actions{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.btn{
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.07);
-  color: rgba(255,255,255,.92);
-  border-radius: 14px;
-  padding: 10px 14px;
-  cursor: pointer;
-  transition: transform .12s ease, background .12s ease, border-color .12s ease;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.btn:hover{ background: rgba(255,255,255,.10); }
-.btn:active{ transform: scale(.98); }
-
-.btn.primary{
-  background: linear-gradient(135deg, rgba(120,170,255,.35), rgba(170,120,255,.22));
-  border-color: rgba(150,180,255,.30);
-}
-
-/* =========================
-   Hero / Banner
-   ========================= */
-.hero{
-  padding: 18px 0 6px;
-}
-
-.hero-wrap{
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 16px;
-  align-items: stretch;
-}
-
-.hero-banner{
-  min-height: 260px; /* مهم: به جای height:100vh */
-  border-radius: 26px;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  box-shadow: var(--shadow);
-}
-
-.hero-banner img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* بنر قشنگ پر می‌شود */
-}
-
-.hero-banner::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(800px 300px at 30% 20%, rgba(120,170,255,.28), transparent 60%),
-              radial-gradient(600px 250px at 70% 40%, rgba(170,120,255,.24), transparent 65%),
-              linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.40));
-  pointer-events: none;
-}
-
-.hero-side{
-  border-radius: 26px;
-}
-
-/* =========================
-   Pages Title Box
-   ========================= */
-.page-title{
-  margin-top: 14px;
-}
-
-.page-title h1{
-  margin: 0;
-  font-size: 22px;
-}
-
-.page-title p{
-  margin: 8px 0 0;
-  opacity: .75;
-  font-size: 13px;
-}
-
-/* =========================
-   Product Grid / Cards
-   ========================= */
-.grid{
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.product{
-  border-radius: 22px;
-  overflow: hidden;
-}
-
-.product-media{
-  position: relative;
-  aspect-ratio: 16/9;    /* مهم: عکس‌ها یک اندازه می‌شوند */
-  background: rgba(255,255,255,.05);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-
-.product-media img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* مهم: نه کشیده می‌شود نه خراب */
-}
-
-.badge{
-  position: absolute;
-  inset-inline-end: 10px;
-  inset-block-start: 10px;
-  padding: 6px 10px;
-  border-radius: 12px;
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.12);
-  backdrop-filter: blur(10px);
-  font-size: 12px;
-}
-
-.product-body{ padding: 14px; }
-
-.product-title{
-  margin: 0 0 10px;
-  font-size: 16px;
-}
-
-.price-row{
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.price{
-  font-weight: 800;
-  letter-spacing: .2px;
-}
-
-.price small{
-  font-weight: 600;
-  opacity: .70;
-  margin-inline-start: 6px;
-}
-
-.product-actions{
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-/* =========================
-   Form / Inputs
-   ========================= */
-.field{
-  display: grid;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.label{
-  font-size: 13px;
-  opacity: .82;
-}
-
-.input, select, textarea{
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.92);
-  outline: none;
-}
-
-.input:focus, select:focus, textarea:focus{
-  border-color: rgba(150,180,255,.35);
-  box-shadow: 0 0 0 3px rgba(120,170,255,.15);
-}
-
-textarea{ min-height: 110px; resize: vertical; }
-
-/* =========================
-   Footer
-   ========================= */
-.footer{
-  padding: 20px 0 40px;
-  opacity: .75;
-  font-size: 12px;
-  text-align: center;
-}
-
-/* =========================
-   Fix common bugs that create big empty spaces
-   ========================= */
-/* اگر جایی از سایتت از این‌ها استفاده شده باشد، این قوانین جلوی خرابکاری را می‌گیرد */
-main, header, section, .container, .card, .page, .page-content{
-  max-width: 100%;
-}
-
-.hero, .section, .page{
-  height: auto !important;     /* مهم: جلوی height:100vh اضافی را می‌گیرد */
-  min-height: 0 !important;
-}
-
-body{
-  overflow-y: auto;            /* اگر قبلاً hidden شده باشد، خراب می‌کند */
-}
-
-img{
-  background: transparent;     /* برای PNG/WebP */
-}
-
-/* =========================
-   Responsive (Mobile First fixes)
-   ========================= */
-@media (max-width: 980px){
-  .hero-wrap{ grid-template-columns: 1fr; }
-  .grid{ grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 560px){
-  .brand-title strong{ font-size: 16px; }
-  .btn{ padding: 10px 12px; border-radius: 13px; }
-
-  .grid{ grid-template-columns: 1fr; }
-  .hero-banner{ min-height: 220px; }
-
-  .navbar{
-    gap: 10px;
-    align-items: flex-start;
-  }
-
-  .nav-actions{
+/* Header */
+.header {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
     width: 100%;
-    justify-content: flex-start;
-  }
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
 }
 
-/* =========================
-   Optional: Smooth scrolling
-   ========================= */
-html{ scroll-behavior: smooth; }
-/* =========================
-   PAYMENT PAGE PATCH (add at end)
-   ========================= */
-
-/* اگر صفحه پرداختت کلاس/آی‌دی خاص دارد این‌ها کمک می‌کند
-   (روی بقیه صفحات اثر خیلی کم دارد) */
-
-/* جلوگیری از کش آمدن عکس بزرگ در پرداخت */
-.payment-page img,
-#payment img,
-.page-payment img {
-  width: 100%;
-  height: auto !important;
-  max-height: 420px;     /* مقدارش را اگر خواستی کم/زیاد کن */
-  object-fit: contain !important;
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* اگر بنر/عکس پرداخت داخل یک باکس است، ارتفاعش منطقی شود */
-.payment-page .product-media,
-#payment .product-media,
-.page-payment .product-media {
-  aspect-ratio: auto !important;
-  height: auto !important;
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #667eea;
 }
 
-/* اگر کارت‌های پرداخت خیلی باریک/بد چیدمان شدند */
-.payment-page .grid,
-#payment .grid,
-.page-payment .grid {
-  grid-template-columns: 1fr !important;
+.logo i {
+    margin-left: 10px;
+    font-size: 2rem;
 }
 
-/* دکمه‌ها و باکس آپلود رسید در موبایل قشنگ‌تر */
-.payment-page .product-actions,
-#payment .product-actions,
-.page-payment .product-actions {
-  flex-wrap: wrap;
+.nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-.payment-page .btn,
-#payment .btn,
-.page-payment .btn {
-  width: 100%;
+.nav a:hover {
+    color: #667eea;
 }
 
-/* اگر ناوبار روی محتوا می‌افتد و فاصله بالا کم است */
-.payment-page,
-#payment,
-.page-payment {
-  padding-top: 12px;
-}
-/* =========================
-   FIX WEBP IMAGE BREAK (ADD AT END)
-   ========================= */
-
-/* قانون طلایی برای همه عکس‌ها */
-img {
-  max-width: 100%;
-  height: auto !important;
-  object-fit: contain;
-  display: block;
+.login-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
 }
 
-/* عکس‌های داخل کارت‌ها / محصولات */
-.product-media,
-.product-img,
-.image-box {
-  width: 100%;
-  height: auto !important;
-  aspect-ratio: auto !important;
-  overflow: hidden;
+/* Hero */
+.hero {
+    padding: 150px 0 100px;
+    text-align: center;
+    color: white;
 }
 
-/* مخصوص WebP (خیلی مهم) */
-img[src$=".webp"] {
-  object-fit: contain !important;
-  background: transparent;
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* اگر قبلاً height:100% باعث خرابی شده */
-.product-media img,
-.card img {
-  width: 100%;
-  height: auto !important;
-  max-height: 320px; /* اگر خواستی عددش رو عوض کن */
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255,107,107,0.6);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Products */
+.products {
+    padding: 100px 0;
+    background: white;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.product-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+}
+
+.product-icon {
+    font-size: 4rem;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    margin-bottom: 25px;
+}
+
+.special-price {
+    color: #4ecdc4 !important;
+    font-size: 1.8rem !important;
+}
+
+.buy-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.buy-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+}
+
+.vip-btn {
+    background: linear-gradient(45deg, #ffd700, #ffed4e) !important;
+    color: #333 !important;
+}
+
+.vip .product-icon i {
+    color: #ffd700 !important;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    font-family: 'Vazir', sans-serif;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.pay-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+}
+
+.success {
+    text-align: center;
+}
+
+.success i {
+    font-size: 5rem;
+    color: #4ecdc4;
+    margin-bottom: 20px;
+}
+
+.success h2 {
+    color: #4ecdc4;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
 }
